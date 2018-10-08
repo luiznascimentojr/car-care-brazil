@@ -2,8 +2,8 @@
   "name": "car-care-brazil",
   "version": "1.0.0",
   "description": "",
-  "main": "node web.js",
   "scripts": {
+    "start": "node web.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/caioresende/car-care-brazil/issues"
   },
-  "homepage": "https://github.com/caioresende/car-care-brazil#readme"
+  "homepage": "https://github.com/caioresende/car-care-brazil#readme",
+  "dependencies": {
+    "jade": "^1.11.0",
+    "keystone": "^4.0.0",
+    "node-sass": "^4.9.3",
+    "node-sass-middleware": "^0.11.0",
+    "underscore": "^1.9.1"
+  }
 }
