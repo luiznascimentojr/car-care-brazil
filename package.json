@@ -1,0 +1,19 @@
+{
+  "name": "car-care-brazil",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caioresende/car-care-brazil.git"
+  },
+  "author": "caio resende",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caioresende/car-care-brazil/issues"
+  },
+  "homepage": "https://github.com/caioresende/car-care-brazil#readme"
+}
