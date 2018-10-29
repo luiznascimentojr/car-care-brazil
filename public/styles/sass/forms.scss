@@ -1,0 +1,196 @@
+
+.divider-form { 
+    height: 64px;
+    position: relative;
+}
+.divider {
+    border-bottom: solid 2px $dark-blue;
+    width: 100%;
+    position: absolute;
+    top: 31px;
+    left: 0;
+    right: 0;
+    bottom: 31px;
+    z-index: 320;
+    @media screen and (max-width: 599px) {
+        top: 30px;
+        bottom: 30px;
+    }
+}
+
+.group-title-form {
+    display: table;
+    margin: 0 auto;
+    font-size: 24px;
+    line-height: 24px;
+    color: $dark-blue;
+    background: white;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: bold;
+    z-index: 330;
+
+    @media screen and (max-width: 599px) {
+        font-size: 18px;
+    }
+}
+
+.radio-label, .checkbox-label {
+    height: 48px;
+    line-height: 48px;
+    font-size: 1em;
+}
+
+.radio-input, .checkbox-input {
+    height: auto;
+}
+
+.servico-item {
+    width: 33%;
+}
+
+#orcamento #form {
+    max-width: 1024px;
+    margin-bottom: 100px;
+}
+
+.form-label {
+    font-size: 1em;
+    height: 48px;
+    line-height: 48px;
+    font-weight: bold;
+    color: rgba(25, 93, 178, 1);
+}
+
+#orcamento #form .form-group select {
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    border: none;
+    background: none;
+    appearance: none;
+    -webkit-appearance:none;
+    font-size: 1em;
+    background-image:
+    linear-gradient(45deg, transparent 50%, white 50%),
+    linear-gradient(135deg,white 50%, transparent 50%),
+    radial-gradient($light-blue-50 70%, transparent 72%);
+    background-position:
+        calc(100% - 24px) calc(1em + 7px),
+        calc(100% - 19px) calc(1em + 7px),
+        calc(100% - .5em) .5em;
+    background-size:
+        5px 5px,
+        5px 5px,
+        2em 2em;
+    background-repeat: no-repeat;
+}
+
+#orcamento #form .input-text, #orcamento #form .form-group textarea {
+    appearance: none;
+    font-size: 1em;
+    background-color: rgba(25, 93, 178, 0.06);
+    border: solid 2px rgba(25, 93, 178, 0.2);
+    border-radius: 30px;
+    height: 48px;
+    line-height: 48px;
+}
+
+#orcamento #form #submit {
+    text-transform: uppercase;
+    font-weight: 900;
+    margin: 15px 0;
+    font-size: 18px;
+    color: white;
+    border: none;
+    background: $orange;
+    border-radius: 30px;
+    padding: 15px 0;
+}
+
+.flex-form {
+    display: flex;
+    flex-direction: row;
+
+    input {
+        margin: 0 0 0 0;
+
+        @media screen and (max-width: 599px) {
+            margin: 0 0 $default-space 0;
+        }
+    }
+    
+    @media screen and (max-width: 599px) {
+        flex-direction: column;
+    }
+}
+
+#historia {
+    margin-top: 150px;
+    margin-bottom: 100px;
+}
+
+.story {
+    position: relative;
+    flex-direction: row;
+    margin-top: 100px;
+    
+    @media screen and (max-width: 599px) {
+        flex-direction: column;
+    }
+    .img-story {
+        position: relative;
+        z-index: 430;
+        width: 50%;
+        height: 400px;
+        max-width:100%;
+        margin-top: -50px;
+
+        @media screen and (max-width: 599px) {
+            width: 80%;
+            height: 200px;
+            order: 1;
+            margin: 0 auto;
+        }
+    }
+    .story-wrapper {
+        position: relative;
+        z-index: 420;
+        width: 40%;
+        height: auto;
+        padding: 10%;
+
+        h1 {
+            color: $light-blue;
+            font-size: 30px;
+        }
+
+        p {
+            color: rgba(0,0,0,0.5);
+            text-align: justify;
+        }
+
+        @media screen and (max-width: 599px) {
+            width: 70%;
+            margin: 0 auto;
+            display: block;
+            order: 2;
+        }
+    }
+
+    .story-left {
+        margin-left: -$default-space * 3;
+        
+        @media screen and (max-width: 599px) {
+            margin-left: 0;
+        }
+    }
+
+    .story-right {
+        margin-right: -$default-space * 3;
+
+        @media screen and (max-width: 599px) {
+            margin-right: 0;
+        }
+    }
+}

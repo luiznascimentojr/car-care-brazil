@@ -1,0 +1,98 @@
+
+@media only screen and (max-width : 599px) {
+    #small-nav { display: block; }
+
+    #large-nav { display: none; }
+
+
+    #dropdown-menu a {
+        margin: 5% 0 0 5%;
+        width: 35%;
+        padding: 5%;
+    }
+
+    #highlight {
+        height: 200px;
+        padding: 10px;
+    }
+
+    #message {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    #contact #form .form-group {
+        flex-direction: column;
+    }
+    #contact #form .form-group input, #contact #form .form-group textarea {
+        margin: 5px 0 15px 0;
+    }
+ }
+
+ @media only screen and (min-width : 600px) {
+    #large-nav {
+        display: block;
+        flex-direction: row;
+    }
+
+    #large-nav a {
+        margin-left: 10px;
+    }
+
+    #small-nav {
+        display: none;
+    }
+
+    #highlight {
+        height: 300px;
+    }
+
+    #message {
+        padding: 20px;
+        font-size: 14px;
+    }
+
+    #contact #form .form-group {
+        flex-direction: row;
+    }
+
+    #contact #form .form-group label {
+        width: 30%;
+        margin: 0 15px 0 0;
+    }
+
+    #contact #form .form-group input, #contact #form .form-group textarea {
+        flex: 1;
+        margin: 5px 0 15px 0;
+    }
+
+    #contact #form #submit {
+        margin: 15px auto;
+    }
+ }
+
+ @media only screen and (min-width : 900px) {
+
+    #highlight {
+        height: 400px;
+    }
+}
+
+ @media only screen and (min-width : 1200px) {
+
+    #highlight {
+        height: 600px;
+    }
+
+    #message {
+        padding: 30px;
+        font-size: 18px;
+    }
+ }
+
+ @media only screen and (min-width : 1800px) {
+
+    #highlight {
+        height: 900px;
+    }
+ }

@@ -1,0 +1,56 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
+        meta(name="google-site-verification" content="OGFnTgfAZdpfN79-zOH32aoOIH-ep3Gn6QEhza76vCc")
+        
+        title= title || 'My Keystone Website'
+        link(rel="stylesheet", href="styles/styles.css")
+        link(rel="stylesheet", href="styles/style.css")
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500")
+        link(rel="stylesheet", href="https://use.typekit.net/gcw2mon.css")
+        link(rel="stylesheet", href="styles/flaticon.css") 
+        script(src="siema.min.js")
+        script(src="app.js")
+
+        
+        block css
+        block head
+    body.clear
+        
+        //- header.shadow.default-padding 
+        //-     .logo(title="Caio Resende" class="border-radius") C
+        //-     nav(class="margin-left")#small-nav
+        //-         a(href="#" class="black-btn border-radius")#menu-btn Navegue
+        //-         div#dropdown-menu
+        //-             a(href="#book-a" class="text-center black-btn").border-radius Trabalhos
+        //-             a(href="#book-a" class="text-center black-btn").border-radius Cursos
+        //-             a(href="/about" class="text-center black-btn").border-radius Sobre
+        //-             a(href="/contact" class="text-center black-btn").border-radius Contato
+        //-     nav#large-nav
+        //-         a(href="#book-a" class="black-btn border-radius") Trabalhos
+        //-         a(href="#book-a" class="black-btn border-radius") Cursos
+        //-         a(href="/about" class="black-btn border-radius") Sobre
+        //-         a(href="/contact" class="black-btn border-radius") Contato
+            
+        
+        main
+            
+            block intro
+            
+            //+flash-messages(messages)
+            
+            block content
+        
+        footer
+            img(class="logo-footer" src="images/logo.png", alt="logo")
+            nav(class="flex flex-row flex-wrap flex-align-center flex-justify-content-center default-padding")
+                span ® Todos os direitos reservados 2018
+                a(href="https://instagram.com/criacaio" target='_blank')
+                    img(src="images/instagram.png", alt="instagram logo")
+                a(href="https://twitter.com/criacaio" target='_blank')
+                    img(src="images/facebook.png", alt="facebook logo")
+                a(href="https://pexels.com/@caio" target='_blank') Desenvolvido por Caio Resende
+    
+    block js

@@ -1,13 +1,12 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
-var Depoimentos = new keystone.List('Depoimentos', {
-	nocreate: true,
-});
+var Depoimentos = new keystone.List('Depoimentos', {});
 
 Depoimentos.add({
-	name: { type: Types.Name, required: true },
-	description: { type: Types.Textarea, required: true },
+	name: { type: String, required: true, initial: true },
+	description: { type: Types.Textarea, required: true, initial: true },
+	servicos: { type: Types.Relationship, ref: 'Servicos', many: true, initial: true, required: true, label: 'Serviços contratados' }
 });
 
 Depoimentos.track = true;

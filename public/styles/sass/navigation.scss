@@ -1,0 +1,40 @@
+header {
+    background: white;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    position: relative;
+}
+
+.logo {
+    display: table;
+    background: #000000;
+    color: #FFFFFF;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    padding: $default-space / 2;
+    text-transform: uppercase;
+}
+
+header nav {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    text-align: right;
+    
+    a {
+        color: rgba(0,0,0,0.83);
+        height: 24px;
+        font-weight: 200;
+        font-size: 14px;
+        text-decoration: none;
+        padding: 6px 12px;
+    }
+}
+
+#dropdown-menu {
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

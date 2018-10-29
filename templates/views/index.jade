@@ -1,0 +1,184 @@
+extends ../layouts/base
+ 
+block content
+    script.
+        var cids = [];
+
+        var setCities = function(state, id) {
+            console.log(state);
+            var obj = JSON.parse(state);
+            console.log(state);
+            cids = obj;
+            addOptions(id, cids);
+        };
+
+        var addOptions = function(selectId, options) {
+            var el = document.getElementById(selectId);
+            el.innerHTML = "";
+            for (var i = 0; i < options.length; i++) {
+                var option = document.createElement("option");
+                option.text = options[i];
+                option.value = options[i];
+                el.add(option);
+            }
+        };
+
+    header#topo
+        .container
+            .background
+            .content-header
+                .wrapper
+                    img#logo(src="./../../images/logo.png", alt="logo car care brazil")
+                    h2 Sem tempo para <b>cuidar</b> do seu carro?
+                    h1 Economize até 80%
+                    p nos serviços de manutenção do seu carro.
+                    button(onClick="goToForm()") <b>AGENDE AGORA</b> E BUSCAMOS SEU CARRO
+                    img#car(src="./../../images/car.png", alt="carro bmw azul")
+    article#depoimentos.wrapper
+        h1(class="default-margin") Depoimentos
+        div.siema
+            each depoimento, d in depoimentos
+                div.depoimento.default-padding.shadow.border-radius.margin-left.margin-right
+                    p.depoimento-texto.clear.margin-bottom #{depoimento.description}
+                    div.flex-column.flex-align-right
+                        h5.client.clear #{depoimento.name}
+                        div.depoimento-servicos.clear.flex.flex-row
+                        each serv, d in depoimento.servicos
+                            p.depoimento-servico.clear #{servs[serv].name}
+        <button class="next shadow border-radius margin-right">&rarr;</button>
+        <button class="prev shadow border-radius margin-right">&larr;</button>
+    
+    article#historia.wrapper
+        h1(class="default-margin title-section") Por que escolher a Car Care Brazil
+        .story.flex
+            img(class="img-story border-radius flex-item shadow" src="./../../images/keys-car.jpg")
+            .story-wrapper.shadow.border-radius.flex-item.story-left
+                h1.title-story Big Title for story
+                p.content-story Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis mi at augue tempor, ut sollicitudin nisi eleifend. Integer eu eleifend libero. Nulla dolor mauris, luctus non metus sed, lacinia vestibulum sapien. Sed nec nunc dignissim, elementum enim nec, auctor nisl. Nulla eu nisl luctus, egestas arcu eu, semper dolor. Fusce imperdiet, ipsum a tincidunt hendrerit, libero metus dictum sem, et rutrum lectus magna id nibh.
+        .story.flex
+            .story-wrapper.shadow.border-radius.flex-item.story-right
+                h1.title-story Big Title for story
+                p.content-story Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis mi at augue tempor, ut sollicitudin nisi eleifend. Integer eu eleifend libero. Nulla dolor mauris, luctus non metus sed, lacinia vestibulum sapien. Sed nec nunc dignissim, elementum enim nec, auctor nisl. Nulla eu nisl luctus, egestas arcu eu, semper dolor. Fusce imperdiet, ipsum a tincidunt hendrerit, libero metus dictum sem, et rutrum lectus magna id nibh.
+            img(class="img-story border-radius flex-item shadow" src="./../../images/oil-car.jpg")
+        .story.flex
+            img(class="img-story border-radius flex-item shadow" src="./../../images/fix-car.jpg")
+            .story-wrapper.shadow.border-radius.flex-item.story-left
+                h1.title-story Big Title for story
+                p.content-story Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis mi at augue tempor, ut sollicitudin nisi eleifend. Integer eu eleifend libero. Nulla dolor mauris, luctus non metus sed, lacinia vestibulum sapien. Sed nec nunc dignissim, elementum enim nec, auctor nisl. Nulla eu nisl luctus, egestas arcu eu, semper dolor. Fusce imperdiet, ipsum a tincidunt hendrerit, libero metus dictum sem, et rutrum lectus magna id nibh.
+
+    article#servicos.wrapper
+        h1(class="default-margin title-section") Serviços
+        div.flex-form.flex-wrap.flex-justify-content-space-between.default-padding
+            each ser, x in servicos
+                div.servico.border-radius.shadow.margin-bottom
+                    div.flex-form.flex-column.icone-servico.default-padding
+                        span(class="#{ser.iconCSS}")
+                    div.padding-bottom.padding-left.padding-right
+                        h2 #{ser.name}
+                        p #{ser.description}
+        div.author-credit.padding-right.text-right
+            p.clear font generated by <a href="http://www.flaticon.com">flaticon.com</a>. 
+            p.clear Under <a href="http://creativecommons.org/licenses/by/3.0/">CC</a>: <a data-file="reparation" href="http://www.flaticon.com/authors/eucalyp">Eucalyp</a>
+
+    article#orcamento.wrapper
+        h1(class="default-margin title-section") Orçamento
+        div.text-center
+            p <b>Conte-nos o que podemos fazer pelo seu veículo hoje!</b> </br> Preencha o formulário abaixo para entrarmos em contato brevemente.
+        #form(class="center padding-right padding-left")
+            form(method='post')
+                input(type='hidden', name='action', value='contact')
+                .divider-form.flex
+                    .divider
+                    .group-title-form.text-center.default-padding Informações pessoais
+                .form-group.flex.margin-bottom(class=validationErrors.name ? 'has-error' : null)
+                    label(class="form-label margin-right") Nome:
+                    input(type='text' name='name' value=formData.name placeholder="Nome Sobrenome" class="padding-left form-control flex-item input-text")
+                div.flex-form
+                    .form-group.flex.flex-item(class=validationErrors.telefone ? 'has-error' : null)
+                            label(class="form-label margin-right") Telefone:
+                            input(type='number' name='telefone' value=formData.telefone placeholder="Telefone contato" class="padding-left form-control flex-item input-text")
+                    .form-group.flex.flex-item.margin-bottom(class=validationErrors.email ? 'has-error' : null)
+                            label(class="form-label margin-right margin-left") Email:
+                            input(type='email' name='email' value=formData.email placeholder="Email contato" class="padding-left form-control flex-item input-text")
+                .form-group.flex.margin-bottom(class=validationErrors.atendimento ? 'has-error' : null)
+                    label(class="form-label margin-right") Contato via:
+                    radiogroup(value=formData.atendimento class="form-control")
+                        input(name='atendimento' type='radio' id="whatsapp" value="whatsapp" class="radio-input")
+                        label(for="whatsapp" class="radio-label margin-right") Whatsapp
+                        input(name='atendimento' type='radio' id="ligação" value="ligação")
+                        label(for="ligação" class="radio-label margin-right") Ligação
+                        input(name='atendimento' type='radio' id="ambos" value="ambos" checked)
+                        label(for="ambos" class="radio-label") Ambos
+                div.flex-form
+                    .form-group.flex.flex-item.margin-bottom(class=validationErrors.estado ? 'has-error' : null)
+                            label(class="form-label margin-right") Estado:
+                            .input-text.padding-left.flex-item 
+                                select(name='estado' value=formData.estado class="form-control margin-right" onClick='setCities(this.value, "cidades")')
+                                    each estado, i in estados
+                                        option(value=estado.name) #{estado.name}
+                    .form-group.flex.flex-item.margin-bottom(class=validationErrors.cidade ? 'has-error' : null)
+                            label(class="form-label margin-right margin-left") Cidade:
+                            .input-text.padding-left.flex-item 
+                                select(name='cidade' value=formData.cidade class="form-control margin-right" onClick='setCities(this.value, "cidades")')
+                                    each estado, i in estados
+                                        option(value=estado.name) #{estado.name}
+                .divider-form.flex
+                    .divider
+                    .group-title-form.text-center.default-padding Seu veículo
+                div.flex-form
+                    .form-group.flex.flex-item.margin-bottom(class=validationErrors.tipoCarro ? 'has-error' : null)
+                            label(class="form-label margin-right") Tipo:
+                            .input-text.padding-left.flex-item 
+                                select(name='tipoCarro' value=formData.tipoCarro class="form-control margin-right" onClick='setCities(this.value, "cidades")')
+                                    each estado, i in estados
+                                        option(value=estado.name) #{estado.name}
+                    .form-group.flex.flex-item.margin-bottom(class=validationErrors.marcaCarro ? 'has-error' : null)
+                            label(class="form-label margin-right margin-left") Marca:
+                            .input-text.padding-left.flex-item
+                                select(name='marcaCarro' value=formData.marcaCarro class="form-control margin-right" onClick='setCities(this.value, "cidades")')
+                                    each estado, i in estados
+                                        option(value=estado.name) #{estado.name}
+                div.flex-form
+                    .form-group.flex.flex-item.margin-bottom(class=validationErrors.modeloCarro ? 'has-error' : null)
+                            label(class="form-label margin-right") Modelo:
+                            .input-text.padding-left.flex-item 
+                                select(name='modeloCarro' value=formData.modeloCarro class="form-control margin-right" onClick='setCities(this.value, "cidades")')
+                                    each estado, i in estados
+                                        option(value=estado.name) #{estado.name}
+                    .form-group.flex.flex-item.margin-bottom(class=validationErrors.anoCarro ? 'has-error' : null)
+                            label(class="form-label margin-right margin-left") Ano:
+                            .input-text.padding-left.flex-item 
+                                select(name='anoCarro' value=formData.anoCarro class="form-control margin-right" onClick='setCities(this.value, "cidades")')
+                                    each estado, i in estados
+                                        option(value=estado.name) #{estado.name}
+                    .form-group.flex.flex-item.margin-bottom(class=validationErrors.versaoCarro ? 'has-error' : null)
+                            label(class="form-label margin-right margin-left") Versão:
+                            .input-text.padding-left.flex-item 
+                                select(name='versaoCarro' value=formData.versaoCarro class="form-control margin-right" onClick='setCities(this.value, "cidades")')
+                                    each estado, i in estados
+                                        option(value=estado.name) #{estado.name}
+                .form-group.flex(class=validationErrors.cidade ? 'has-error' : null)
+                        label(class="form-label margin-right") Serviços:
+                        .flex.flex-wrap
+                            each servico, j in servicos
+                                .servico-item
+                                    input(type='checkbox' name="#{servico.name}" value="#{servico.name}" class="checkbox-input")
+                                    label(for="#{servico.name}" class="checkbox-label") #{servico.name}
+                .divider-form.flex
+                    .divider
+                    .group-title-form.text-center.default-padding Atendimento
+                .form-group.flex.margin-bottom(class=validationErrors.busca ? 'has-error' : null)
+                    label(class="form-label margin-right") Tipo agendamento:
+                    radiogroup(value=formData.busca class="form-control")
+                        input(name='busca' type='radio' id="in-loco" value="In-loco" class="radio-input")
+                        label(for="In-loco" class="radio-label margin-right") In-loco
+                        input(name='busca' type='radio' id="busca-entrega" value="Busca-Entrega" checked)
+                        label(for="Busca-Entrega" class="radio-label margin-right") Busca-Entrega
+                .divider-form.flex
+                    .divider
+                    .group-title-form.text-center.default-padding Outras informações
+                .form-group.flex.margin-bottom(class=validationErrors.mensagem ? 'has-error' : null)
+                    label(class="form-label margin-right") Mensagem:
+                    input(type='textarea' rows="8" name='mensagem' value=formData.mensagem placeholder="Detalhes do serviço" class="padding-left form-control flex-item input-text")
+                .form-group.flex
+                    button(type='submit' class="flex-item shadow")#submit Enviar

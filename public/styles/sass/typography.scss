@@ -1,0 +1,12 @@
+body {
+    font-family: $default-font;
+}
+
+/* ALIGNMENT */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+
+/* COLOR */
+.black-text { color: rgba(0, 0, 0, 0.84); }
+.white-text { color: rgba(0, 0, 0, 0.84); }
