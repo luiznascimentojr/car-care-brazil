@@ -69,6 +69,12 @@
   .padding-bottom {
     padding-bottom: 20px; } }
 
+.no-margin {
+  margin: 0; }
+
+.no-padding {
+  padding: 0; }
+
 .center {
   margin: 0 auto; }
 
@@ -366,7 +372,7 @@
         font-size: 18px; } }
 
 #logo {
-  width: 175px;
+  width: 250px;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -429,6 +435,17 @@
   @media screen and (min-width: 600px) and (max-width: 799px) {
     .servico {
       width: 48%; } }
+
+.servico-no-highlight {
+  width: 100%;
+  order: 3; }
+
+.servico-no-highlight-title {
+  width: 100%;
+  order: 2; }
+
+.servico-highlight {
+  order: 1; }
 
 .author-credit {
   font-size: 9px;
