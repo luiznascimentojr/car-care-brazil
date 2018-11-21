@@ -32,21 +32,21 @@ block content
                     h2 Sem tempo para <b>cuidar</b> do seu carro?
                     h1 Cuidamos do seu carro para você
                     //p nos serviços de manutenção do seu carro.
-                    button(onClick="goToForm()") <b>AGENDE AGORA</b> E VAMOS BUSCÁ-LO
+                    button(onClick="goToForm()") <b>AGENDE AGORA</b>
                     img#car(src="./../../images/car.png", alt="carro bmw azul")
-    article#depoimentos.wrapper
-        h1(class="default-margin") Depoimentos
-        div.siema
-            each depoimento, d in depoimentos
-                div.depoimento.default-padding.shadow.border-radius.margin-left.margin-right
-                    p.depoimento-texto.clear.margin-bottom #{depoimento.description}
-                    div.flex-column.flex-align-right
-                        h5.client.clear #{depoimento.name}
-                        div.depoimento-servicos.clear.flex.flex-row
-                        each serv, d in depoimento.servicos
-                            p.depoimento-servico.clear #{servs[serv].name}
-        <button class="next shadow border-radius margin-right">&rarr;</button>
-        <button class="prev shadow border-radius margin-right">&larr;</button>
+    //- article#depoimentos.wrapper
+    //-     h1(class="default-margin") Depoimentos
+    //-     div.siema
+    //-         each depoimento, d in depoimentos
+    //-             div.depoimento.default-padding.shadow.border-radius.margin-left.margin-right
+    //-                 p.depoimento-texto.clear.margin-bottom #{depoimento.description}
+    //-                 div.flex-column.flex-align-right
+    //-                     h5.client.clear #{depoimento.name}
+    //-                     div.depoimento-servicos.clear.flex.flex-row
+    //-                     each serv, d in depoimento.servicos
+    //-                         p.depoimento-servico.clear #{servs[serv].name}
+    //-     <button class="next shadow border-radius margin-right">&rarr;</button>
+    //-     <button class="prev shadow border-radius margin-right">&larr;</button>
     
     article#historia.wrapper
         h1(class="default-margin title-section") Por que escolher a Car Care Brazil

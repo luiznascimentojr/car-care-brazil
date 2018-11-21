@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/caioresende/car-care-brazil#readme",
   "dependencies": {
+    "ejs": "^2.6.1",
     "jade": "^1.11.0",
     "keystone": "^4.0.0",
     "node-sass": "^4.9.3",
