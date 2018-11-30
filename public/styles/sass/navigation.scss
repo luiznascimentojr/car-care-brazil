@@ -26,10 +26,14 @@ header {
     a {
         color: white;
         height: 24px;
-        font-weight: 200;
+        font-weight: 500;
         font-size: 14px;
         text-decoration: none;
         padding: 6px 12px;
+        
+        &:hover {
+            border-bottom: solid 2px white;
+        }
     }
 }
 

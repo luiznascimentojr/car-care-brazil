@@ -527,10 +527,12 @@ header {
   #nav a {
     color: white;
     height: 24px;
-    font-weight: 200;
+    font-weight: 500;
     font-size: 14px;
     text-decoration: none;
     padding: 6px 12px; }
+    #nav a:hover {
+      border-bottom: solid 2px white; }
 
 #large-nav {
   margin: 0 auto;
