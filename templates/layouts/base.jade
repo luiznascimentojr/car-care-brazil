@@ -6,7 +6,6 @@ html
         meta(name="google-site-verification" content="OGFnTgfAZdpfN79-zOH32aoOIH-ep3Gn6QEhza76vCc")
         
         title= title || 'My Keystone Website'
-        link(rel="stylesheet", href="styles/styles.css")
         link(rel="stylesheet", href="styles/style.css")
         link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500")
         link(rel="stylesheet", href="https://use.typekit.net/gcw2mon.css")
@@ -19,20 +18,23 @@ html
         block head
     body.clear
         
-        //- header.shadow.default-padding 
-        //-     .logo(title="Caio Resende" class="border-radius") C
-        //-     nav(class="margin-left")#small-nav
-        //-         a(href="#" class="black-btn border-radius")#menu-btn Navegue
-        //-         div#dropdown-menu
-        //-             a(href="#book-a" class="text-center black-btn").border-radius Trabalhos
-        //-             a(href="#book-a" class="text-center black-btn").border-radius Cursos
-        //-             a(href="/about" class="text-center black-btn").border-radius Sobre
-        //-             a(href="/contact" class="text-center black-btn").border-radius Contato
-        //-     nav#large-nav
-        //-         a(href="#book-a" class="black-btn border-radius") Trabalhos
-        //-         a(href="#book-a" class="black-btn border-radius") Cursos
-        //-         a(href="/about" class="black-btn border-radius") Sobre
-        //-         a(href="/contact" class="black-btn border-radius") Contato
+        header#nav.shadow
+            div#small-nav
+                a(href="#" class="black-btn border-radius")#menu-btn Navegue
+                div#dropdown-menu
+                    a(href="#book-a" class="text-center black-btn").border-radius Porque a Car Care Brazil?
+                    a(href="#book-a" class="text-center black-btn").border-radius Serviços
+                    a(href="/about" class="text-center black-btn").border-radius Depoimentos
+                    a(href="/contact" class="text-center black-btn").border-radius Conheça mais
+                    a(href="/contact" class="text-center black-btn").border-radius Trabalhe Conosco
+                    a(href="/contact" class="text-center black-btn").border-radius Contato
+            div#large-nav
+                a(href="#book-a" class="black-btn").border-radius Porque a Car Care Brazil?
+                a(href="#book-a" class="black-btn").border-radius Serviços
+                a(href="/about" class="black-btn").border-radius Depoimentos
+                a(href="/contact" class="black-btn").border-radius Conheça mais
+                a(href="/contact" class="black-btn").border-radius Trabalhe Conosco
+                a(href="/contact" class="black-btn").border-radius Contato
             
         
         main
