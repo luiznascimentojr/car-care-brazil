@@ -159,6 +159,9 @@
 .servico-item {
   width: 33%; }
 
+#orcamento {
+  padding-top: 100px; }
+
 #orcamento #form {
   max-width: 1024px;
   margin-bottom: 100px; }
@@ -217,8 +220,20 @@
       flex-direction: column; } }
 
 #historia {
-  margin-top: 150px;
+  padding-top: 100px;
   margin-bottom: 100px; }
+
+#servicos {
+  padding-top: 100px; }
+  #servicos button {
+    float: right;
+    background: #05254A;
+    border: none;
+    padding: 10px 15px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white; }
 
 .story {
   position: relative;
@@ -433,7 +448,7 @@ html, body, main {
     font-size: 18px; }
 
 .servico {
-  width: 32%;
+  margin: 0 20px;
   overflow: hidden;
   background-image: linear-gradient(to bottom right, #2d7be5, #05254A);
   border: solid 4px;
@@ -441,10 +456,12 @@ html, body, main {
   color: white; }
   @media screen and (max-width: 599px) {
     .servico {
-      width: 100%; } }
+      width: 80%;
+      margin: 0 auto; } }
   @media screen and (min-width: 600px) and (max-width: 799px) {
     .servico {
-      width: 48%; } }
+      width: 48%;
+      margin: 0 auto; } }
 
 .servico-no-highlight {
   width: 100%;
@@ -533,6 +550,15 @@ header {
     padding: 6px 12px; }
     #nav a:hover {
       border-bottom: solid 2px white; }
+
+#agende-agora {
+  background: #F47D06;
+  border-radius: 5px;
+  border-bottom: none !important; }
+
+.icon-nav {
+  width: 24px;
+  height: auto; }
 
 #large-nav {
   margin: 0 auto;

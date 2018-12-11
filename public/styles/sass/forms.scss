@@ -49,6 +49,10 @@
     width: 33%;
 }
 
+#orcamento {
+    padding-top: 100px;
+}
+
 #orcamento #form {
     max-width: 1024px;
     margin-bottom: 100px;
@@ -126,8 +130,23 @@
 }
 
 #historia {
-    margin-top: 150px;
+    padding-top: 100px;
     margin-bottom: 100px;
+}
+
+#servicos {
+    padding-top: 100px;
+    
+    button {
+        float: right;
+        background: #05254A;
+        border: none;
+        padding: 10px 15px;
+        font-size: 12px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: white;
+    }
 }
 
 .story {

@@ -37,6 +37,17 @@ header {
     }
 }
 
+#agende-agora {
+    background: $orange;
+    border-radius: $default-border-radius/2;
+    border-bottom: none !important;
+}
+
+.icon-nav {
+    width: 24px;
+    height: auto;
+}
+
 #large-nav {
     margin: 0 auto;
     display: block;
