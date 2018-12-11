@@ -413,18 +413,7 @@ html, body, main {
       display: none; } }
 
 #depoimentos {
-  margin-top: -150px;
-  position: relative;
-  z-index: 300; }
-  @media screen and (max-width: 599px) {
-    #depoimentos {
-      margin-top: -100px; } }
-  #depoimentos h1 {
-    font-size: 30px;
-    font-weight: 400;
-    font-family: "paralucent-stencil", sans-serif;
-    text-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
-    color: white; }
+  padding-top: 150px; }
   #depoimentos button {
     float: right;
     background: #05254A;
@@ -435,8 +424,8 @@ html, body, main {
     text-transform: uppercase;
     color: white; }
 
-.siema {
-  padding-bottom: 30px; }
+.siema-2, .siema {
+  padding-bottom: 20px; }
 
 .depoimento {
   background-color: white; }
@@ -490,6 +479,14 @@ html, body, main {
   font-size: 12px;
   font-weight: 500;
   color: gray; }
+
+.depoimento-cidade {
+  font-size: 12px;
+  font-weight: 500;
+  color: gray;
+  float: right;
+  margin-bottom: 10px;
+  text-transform: uppercase; }
 
 .title-section {
   font-family: "paralucent-stencil", sans-serif;

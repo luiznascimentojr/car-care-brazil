@@ -34,19 +34,6 @@ block content
                     //p nos serviços de manutenção do seu carro.
                     button(onClick="goToForm()") <b>AGENDE AGORA</b>
                     img#car(src="./../../images/car.png", alt="carro bmw azul")
-    //- article#depoimentos.wrapper
-    //-     h1(class="default-margin") Depoimentos
-    //-     div.siema
-    //-         each depoimento, d in depoimentos
-    //-             div.depoimento.default-padding.shadow.border-radius.margin-left.margin-right
-    //-                 p.depoimento-texto.clear.margin-bottom #{depoimento.description}
-    //-                 div.flex-column.flex-align-right
-    //-                     h5.client.clear #{depoimento.name}
-    //-                     div.depoimento-servicos.clear.flex.flex-row
-    //-                     each serv, d in depoimento.servicos
-    //-                         p.depoimento-servico.clear #{servs[serv].name}
-    //-     <button class="next shadow border-radius margin-right">&rarr;</button>
-    //-     <button class="prev shadow border-radius margin-right">&larr;</button>
     
     article#historia.wrapper
         h1(class="default-margin title-section") Por que escolher a Car Care Brazil
@@ -83,10 +70,26 @@ block content
         <button class="next shadow border-radius margin-right">&rarr;</button>
         <button class="prev shadow border-radius margin-right">&larr;</button>
 
+    article#depoimentos.wrapper
+        h1(class="title-section default-margin") Depoimentos
+        div.siema-2
+            each depoimento, d in depoimentos
+                div.depoimento.default-padding.shadow.border-radius.margin-left.margin-right
+                    p.depoimento-texto.clear.margin-bottom #{depoimento.description}
+                    div.flex-column.flex-align-right
+                        h5.client.clear #{depoimento.name}
+                        div.depoimento-servicos.clear.flex.flex-row
+                        each serv, d in depoimento.servicos
+                            p.depoimento-servico.clear #{servs[serv].name} 
+                    p.depoimento-cidade.clear #{depoimento.cidade} 
+        <button class="next-2 shadow border-radius margin-right">&rarr;</button>
+        <button class="prev-2 shadow border-radius margin-right">&larr;</button>
+        <button class="shadow border-radius margin-right">Enviar depoimento</button>   
+
     article#orcamento.wrapper
-        h1(class="default-margin title-section") Orçamento
+        h1(class="default-margin title-section") Agende agora
         div.text-center
-            p <b>Conte-nos o que podemos fazer pelo seu veículo hoje!</b> </br> Preencha o formulário abaixo para entrarmos em contato brevemente.
+            p <strong> IMPORTANTE:</strong> Esse formulário é apenas um registro para que possamento entrar em contato, <br> não vincula nenhuma obrigação por parte do cliente.
         #form(class="center padding-right padding-left")
             form(method='post')
                 input(type='hidden', name='action', value='contact')
