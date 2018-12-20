@@ -71,6 +71,10 @@ exports = module.exports = function(req, res) {
 		}
 	};
 
+	var goToForm = function() {
+		console.log('go to form');
+	};
+
 	view.on('post', { action: 'contact' }, function (next) {
 
 		console.log(req.body);

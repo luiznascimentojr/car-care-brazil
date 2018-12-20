@@ -51,4 +51,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     prev2.addEventListener('click', () => mySiema2.prev());
     next2.addEventListener('click', () => mySiema2.next());
+
+    //getting elements to manipulate
+    var menuBtn = document.getElementsByClassName('menu-btn');
+    var dropdownMenu = document.getElementById('dropdown-menu');
+
+    for (var i = 0; i < menuBtn.length; i++) {
+      menuBtn[i].addEventListener('click',function() {
+        dropdownMenu.classList.toggle('is-visible');        
+      }, false);
+    }
+
 });
