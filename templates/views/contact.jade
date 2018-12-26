@@ -1,0 +1,35 @@
+extends ../layouts/base
+ 
+block content
+	if enquirySubmitted
+		.jumbotron.text-center
+			h1 Successo!
+				p Obrigado pela sua mensagem! 
+	
+	else
+		article#contact
+			h1(class="default-margin black-text") Contato
+			#form(class="center padding-right padding-left")
+				form(method='post')
+					input(type='hidden', name='action', value='contact')
+					.form-group.flex(class=validationErrors.name ? 'has-error' : null)
+						label(class="black-text") Nome
+						input(type='text' name='name.full' value=formData['name.full'] required placeholder="Nome" class="form-control border-radius default-padding")
+					.form-group.flex(class=validationErrors.email ? 'has-error' : null)
+						label(class="black-text") Email
+						input(type='email' name='email' value=formData.email required placeholder="Email ativo" class="form-control border-radius default-padding")
+					.form-group.flex
+						label(class="black-text") Telefone
+						input(type='text' name='pho ne' value=formData.phone placeholder='(opicional)' class="form-control border-radius default-padding")
+					//- .form-group.flex(class=validationErrors.enquiryType ? 'has-error' : null required)
+					//- 	label Regarding
+			
+					//- 		select(name='enquiryType').form-control
+					//- 			option(value='') (required)
+					//- 			each type in enquiryTypes
+					//- 				option(value=type.value selected=formData.enquiryType === type.value)= type.label
+					.form-group.flex(class=validationErrors.message ? 'has-error' : null)
+						label(class="black-text") Mensagem
+						textarea(name='message' placeholder='Deixe sua mensagem...' required class="form-control border-radius default-padding")
+					.form-group.flex
+						button(type='submit' class="border-radius black-btn black-text flex flex-justify-content-center default-padding")#submit Enviar

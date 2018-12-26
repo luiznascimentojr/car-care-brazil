@@ -75,6 +75,12 @@ header nav {
     flex-wrap: wrap;
 }
 
+#large-nav-footer a {
+    float: left;
+    display: table;
+    text-decoration: none;
+}
+
 
 @media only screen and (max-width : 599px) {
     #small-nav { display: block; }
