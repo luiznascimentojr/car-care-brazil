@@ -202,7 +202,7 @@
   background: #F47D06;
   border-radius: 30px; }
 
-#orcamento #form .input-text, #orcamento #form .form-group textarea, #page-single #form input, #page-single #form .form-group textarea {
+#orcamento #form .input-text, #page-single #form .form-group select, #orcamento #form .form-group textarea, #page-single #form input, #page-single #form .form-group textarea {
   appearance: none;
   font-size: 1em;
   background-color: rgba(25, 93, 178, 0.06);

@@ -15,7 +15,7 @@ exports = module.exports = function (req, res) {
 
         var q = keystone.list('Page').model.findOne({
             state: 'publicada',
-            slug: req.params.page,
+            slug: 'page/' + req.params.page,
         }).exec(function (err, result) {
             console.log(result, err);
             if(!result) {

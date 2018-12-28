@@ -5,3 +5,4 @@ require('./users.js');
 require('./cidades.js');
 require('./estados.js');
 require('./page.js');
+require('./enquiry.js');
