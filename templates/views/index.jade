@@ -142,21 +142,15 @@ block content
                     .form-group.flex.flex-item.margin-bottom(class=validationErrors.marcaCarro ? 'has-error' : null)
                             label(class="form-label margin-right") Marca:
                             .input-text.padding-left.flex-item
-                                select(name='marcaCarro' value=formData.marcaCarro class="form-control margin-right" onClick='setCities(this.value, "cidades")')
-                                    each estado, i in estados
-                                        option(value=estado.name) #{estado.name}
+                                select(name='marcaCarro' id="marcas" value=formData.marcaCarro class="form-control margin-right")
                     .form-group.flex.flex-item.margin-bottom(class=validationErrors.modeloCarro ? 'has-error' : null)
                             label(class="form-label margin-right margin-left") Modelo:
                             .input-text.padding-left.flex-item 
-                                select(name='modeloCarro' value=formData.modeloCarro class="form-control margin-right" onClick='setCities(this.value, "cidades")')
-                                    each estado, i in estados
-                                        option(value=estado.name) #{estado.name}
+                                select(name='modeloCarro' id="modelos" value=formData.modeloCarro class="form-control margin-right")
                     .form-group.flex.flex-item.margin-bottom(class=validationErrors.anoCarro ? 'has-error' : null)
                             label(class="form-label margin-right margin-left") Ano:
                             .input-text.padding-left.flex-item 
-                                select(name='anoCarro' value=formData.anoCarro class="form-control margin-right" onClick='setCities(this.value, "cidades")')
-                                    each estado, i in estados
-                                        option(value=estado.name) #{estado.name}
+                                select(name='anoCarro' id="#anos" value=formData.anoCarro class="form-control margin-right")
                     //- .form-group.flex.flex-item.margin-bottom(class=validationErrors.versaoCarro ? 'has-error' : null)
                     //-         label(class="form-label margin-right margin-left") Versão:
                     //-         .input-text.padding-left.flex-item 

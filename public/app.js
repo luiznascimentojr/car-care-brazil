@@ -62,4 +62,51 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }, false);
     }
 
+    var loadSelectInput = function(selector, data) {
+      var $select = $(selector);
+
+      $select.find('option')
+      .remove()
+      .end()
+
+      $(data).each(function(i, v){
+          $select.append($("<option>", { value: v.id, html: v.name }));
+        });
+    };
+
+    $('#marcas').change(function() {
+      var params = [];
+      params.push($(this).val());
+      getOptions('#modelos', params)
+    })
+
+    $('#modelos').change(function() {
+      var params = [];
+      params = $(this).val();
+      getOptions('#modelos', params)
+    })
+
+    var getOptions = function(selector, params) {
+      var url = '';
+
+      switch(selector) {
+        case '#marcas':
+          url = 'http://fipeapi.appspot.com/api/1/carros/marcas.json';
+          break;
+        case '#modelos':
+          url = 'http://fipeapi.appspot.com/api/1/carros/veiculos/' + params + '.json';
+          break;
+        case '#anos':
+        url = url.replace('.json', '/' + params + '.json');
+          break;
+        default:
+          break;
+      }
+
+      $.get(url, function(data, status) {
+        loadSelectInput(selector, data);
+      });
+    };
+
+    getOptions('#marcas');
 });
