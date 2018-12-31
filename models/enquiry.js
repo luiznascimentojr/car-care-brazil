@@ -13,7 +13,7 @@ Enquiry.add({
 		{ value: 'mensagem', label: "Dúvida geral" },
 		{ value: 'trabalhe', label: "Trabalhe conosco" },
 		{ value: 'orcamento', label: "Agendar serviço" },
-		{ value: 'depoimento, label: "Enviar depoimento" }
+		{ value: 'depoimento', label: "Enviar depoimento" }
 	], required: true, initial: true },
 	message: { type: Types.Textarea, required: true, initial: true },
 });
