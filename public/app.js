@@ -56,6 +56,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
     var menuBtn = document.getElementsByClassName('menu-btn');
     var dropdownMenu = document.getElementById('dropdown-menu');
 
+    //get marcas modelos anos
+    var params = [];
+
     for (var i = 0; i < menuBtn.length; i++) {
       menuBtn[i].addEventListener('click',function() {
         dropdownMenu.classList.toggle('is-visible');        
@@ -74,30 +77,42 @@ document.addEventListener("DOMContentLoaded", function(event) {
         });
     };
 
+    var clearInputs = function(inputs) {
+      for (var i = 0; i < inputs.length; i++) {
+        $(inputs[i]).empty();
+      }
+    };
+
     $('#marcas').change(function() {
-      var params = [];
-      params.push($(this).val());
+      params = [];
+      clearInputs(['#modelos', '#anos']);
+      params.push($(this).val()) ; 
       getOptions('#modelos', params)
     })
 
     $('#modelos').change(function() {
-      var params = [];
-      params = $(this).val();
-      getOptions('#modelos', params)
+      params.push($(this).val());
+      clearInputs(['#anos']);
+      getOptions('#anos', params)
     })
 
-    var getOptions = function(selector, params) {
+    var getOptions = function(selector, p) {
       var url = '';
+      var veiculo = '';
 
       switch(selector) {
         case '#marcas':
           url = 'http://fipeapi.appspot.com/api/1/carros/marcas.json';
+          console.log(url);
           break;
         case '#modelos':
-          url = 'http://fipeapi.appspot.com/api/1/carros/veiculos/' + params + '.json';
+          url = 'http://fipeapi.appspot.com/api/1/carros/veiculos/' + p[0] + '.json';
+          console.log(url, p);
           break;
         case '#anos':
-        url = url.replace('.json', '/' + params + '.json');
+          url = 'http://fipeapi.appspot.com/api/1/carros/veiculo/' + p[0] + '/' + p[1] + '.json';
+          console.log(url, p);
+          params.splice(-1,1);
           break;
         default:
           break;
