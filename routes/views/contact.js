@@ -15,8 +15,6 @@ exports = module.exports = function(req, res) {
 
 	view.on('post', { action: 'contact' }, function (next) {
 
-		console.log('post');
-
 		var application = new Enquiry.model();
 		var updater = application.getUpdateHandler(req);
 
@@ -25,10 +23,8 @@ exports = module.exports = function(req, res) {
 		}, function (err) {
 			if (err) {
 				locals.validationErrors = err.errors;
-				console.log(err);
 			} else {
 				locals.enquirySubmitted = true;
-				console.log('sucesso');
 			}
 			next();
 		});
