@@ -159,10 +159,10 @@ block content
                     //-                     option(value=estado.name) #{estado.name}
                 .form-group.flex(class=validationErrors.cidade ? 'has-error' : null)
                         label(class="form-label margin-right") Serviços:
-                        .flex.flex-wrap
+                        radiogroup.flex.flex-wrap(id="servico" value=formData.servicos class="form-control")
                             each servico, j in servicos
                                 .servico-item
-                                    input(type='checkbox' name="#{servico.name}" value="#{servico.name}" class="checkbox-input")
+                                    input(type='checkbox' name="servicos" value="#{servico.id}" class="checkbox-input")
                                     label(for="#{servico.name}" class="checkbox-label") #{servico.name}
                 .divider-form.flex
                     .divider
@@ -173,12 +173,12 @@ block content
                 .divider-form.flex
                     .divider
                     .group-title-form.text-center.default-padding Disponibilidade de Atendimento
-                .form-group.flex.margin-bottom(class=validationErrors.disponibilidadeDia ? 'has-error' : null)
+                .form-group.flex.margin-bottom(class=validationErrors.disponibilidade Dia ? 'has-error' : null)
                     label(class="form-label margin-right") Dia da semana:
-                    radiogroup(value=formData.busca class="form-control")
+                    radiogroup(id="disponibilidade" value=formData.disponibilidade class="form-control")
                         input(name="disponibilidade" type='checkbox' id="segunda-feira" value="segunda-feira" class="checkbox-input")
                         label(for="segunda-feira" class="checkbox-label margin-right") Segunda-feira
-                        input(name="disponibilidade" type='checkbox' id="terca-feira" value="terça-feira" checked)
+                        input(name="disponibilidade" type='checkbox' id="terca-feira" value="terça-feira")
                         label(for="terca-feira" class="checkbox-label margin-right") terça-feira
                         input(name="disponibilidade" type='checkbox' id="quarta-feira" value="quarta-feira" class="checkbox-input")
                         label(for="quarta-feira" class="checkbox-label margin-right") Quarta-feira
@@ -188,12 +188,12 @@ block content
                         label(for="sexta-feira" class="checkbox-label margin-right") Sexta-feira
                         input(name="disponibilidade" type='checkbox' id="sabado" value="sabado" class="checkbox-input")
                         label(for="sabado" class="checkbox-label margin-right") Sábado
-                .form-group.flex.margin-bottom(class=validationErrors.disponibilidadePeriodo ? 'has-error' : null)
+                .form-group.flex.margin-bottom(class=validationErrors.periodo Periodo ? 'has-error' : null)
                     label(class="form-label margin-right") Período:
-                    radiogroup(value=formData.busca class="form-control")
+                    radiogroup(id="periodo" value=formData.periodo class="form-control")
                         input(name="periodo" type='checkbox' id="manha" value="manha" class="checkbox-input")
                         label(for="manha" class="checkbox-label margin-right") Manhã
-                        input(name="periodo" type='checkbox' id="tarde" value="tarde" checked)
+                        input(name="periodo" type='checkbox' id="tarde" value="tarde")
                         label(for="tarde" class="checkbox-label margin-right") Tarde
                 .form-group.flex
                     button(type='submit' class="flex-item shadow")#submit Enviar

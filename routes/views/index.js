@@ -71,22 +71,37 @@ exports = module.exports = function(req, res) {
 		}
 	};
 
-	var goToForm = function() {
-		console.log('go to form');
-	};
-
 	view.on('post', { action: 'contact' }, function (next) {
 
 		console.log(req.body);
 
 		var application = new Orcamento.model();
 		var updater = application.getUpdateHandler(req);
+		var d = req.body.disponibilidade;
+		var p = req.body.periodo;
+
+		if (d && d.length > 1) {
+			var dString = '';
+			for (var i = 0; i < d.length; i++) {
+				dString = dString + d[i] + ' ';
+			}
+			req.body.disponibilidade = dString;
+		}
+
+		if (p && p.length > 1) {
+			var pString = '';
+			for (var i = 0; i < p.length; i++) {
+				pString = pString + p[i] + ' ';
+			}
+			req.body.periodo = pString;
+		}
 
 		updater.process(req.body, {
 			flashErrors: true
 		}, function (err) {
 			if (err) {
 				locals.validationErrors = err.errors;
+				console.log(err);
 			} else {
 				locals.enquirySubmitted = true;
 			}

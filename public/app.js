@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       .end()
 
       $(data).each(function(i, v){
-          $select.append($("<option>", { value: v.id, html: v.name }));
+          $select.append($("<option>", { value: v.name, 'data-id': v.id, html: v.name }));
         });
     };
 
@@ -86,15 +86,51 @@ document.addEventListener("DOMContentLoaded", function(event) {
     $('#marcas').change(function() {
       params = [];
       clearInputs(['#modelos', '#anos']);
-      params.push($(this).val()) ; 
+      params.push($(this).find(':selected').data('id')) ; 
       getOptions('#modelos', params)
     })
 
     $('#modelos').change(function() {
-      params.push($(this).val());
+      params.push($(this).find(':selected').data('id'));
       clearInputs(['#anos']);
       getOptions('#anos', params)
     })
+
+    $('#disponibilidade').change(function() {
+      var disponilidade = '';
+      {
+        $('#disponibilidade :checked').each(function() {
+          if(disponilidade.indexOf($(this).val()) === -1){
+            disponilidade = disponilidade + $(this).val() + ' ';
+          }
+        });
+      }
+      $(this).val(disponilidade)
+    });
+
+    $('#periodo').change(function() {
+      var periodo = '';
+      {
+        $('#periodo :checked').each(function() {
+          if(periodo.indexOf($(this).val()) === -1){
+            periodo = periodo + $(this).val() + ' ';
+          }
+        });
+        $(this).val(periodo);
+      }
+    });
+
+    $('#servico').change(function() {
+      var servico = [];
+      {
+        $('#servico :checked').each(function() {
+          if(servico.indexOf($(this).val()) === -1){
+            servico.push($(this).val());
+          }
+        });
+        $(this).val(servico);
+      }
+    });
 
     var getOptions = function(selector, p) {
       var url = '';
@@ -103,15 +139,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
       switch(selector) {
         case '#marcas':
           url = 'http://fipeapi.appspot.com/api/1/carros/marcas.json';
-          console.log(url);
           break;
         case '#modelos':
           url = 'http://fipeapi.appspot.com/api/1/carros/veiculos/' + p[0] + '.json';
-          console.log(url, p);
           break;
         case '#anos':
           url = 'http://fipeapi.appspot.com/api/1/carros/veiculo/' + p[0] + '/' + p[1] + '.json';
-          console.log(url, p);
           params.splice(-1,1);
           break;
         default:
