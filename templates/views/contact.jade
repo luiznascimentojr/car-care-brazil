@@ -14,13 +14,13 @@ block content
 					input(type='hidden', name='action', value='contact')
 					.form-group.flex(class=validationErrors.name ? 'has-error' : null)
 						label(class="black-text margin-bottom") Nome
-						input(type='text' name='name.full' value=formData['name.full'] required placeholder="Nome" class="margin-left form-control border-radius default-padding")
+						input(type='text' name='name' value=formData.name required placeholder="Nome" class="margin-left form-control border-radius default-padding")
 					.form-group.flex(class=validationErrors.email ? 'has-error' : null)
 						label(class="black-text margin-bottom") Email
 						input(type='email' name='email' value=formData.email required placeholder="Email" class="margin-left form-control border-radius default-padding")
 					.form-group.flex
 						label(class="black-text margin-bottom") Telefone
-						input(type='text' name='pho ne' value=formData.phone placeholder='(opicional)' class="margin-left form-control border-radius default-padding")
+						input(type='text' name='phone' value=formData.phone placeholder='(opicional)' class="margin-left form-control border-radius default-padding")
 					.form-group.flex(class=validationErrors.enquiryType ? 'has-error' : null required)
 						label(class="black-text margin-bottom") Assunto
 						select(name='enquiryType' class="input-text margin-left form-control border-radius default-padding" placeholder="Selecione o assunto")
