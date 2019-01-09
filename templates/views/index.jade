@@ -103,7 +103,7 @@ block content
                 div.flex-form
                     .form-group.flex.flex-item(class=validationErrors.telefone ? 'has-error' : null)
                             label(class="form-label margin-right") Telefone:
-                            input(type='number' name='telefone' value=formData.telefone placeholder="Telefone contato" class="padding-left form-control flex-item input-text")
+                            input(type='text' name='telefone'  maxlength="15" placeholder="(XX) XXXXX-XXXX" value=formData.telefone class="padding-left form-control flex-item input-text phone-mask")
                     //- .form-group.flex.flex-item.margin-bottom(class=validationErrors.email ? 'has-error' : null)
                     //-         label(class="form-label margin-right margin-left") Email:
                     //-         input(type='email' name='email' value=formData.email placeholder="Email contato" class="padding-left form-control flex-item input-text")

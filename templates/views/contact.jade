@@ -19,8 +19,8 @@ block content
 						label(class="black-text margin-bottom") Email
 						input(type='email' name='email' value=formData.email required placeholder="Email" class="margin-left form-control border-radius default-padding")
 					.form-group.flex
-						label(class="black-text margin-bottom") Telefone
-						input(type='number' name='phone' value=formData.phone placeholder='(opicional)' class="margin-left form-control border-radius default-padding")
+						label(class="black-text margin-bottom phone-mask") Telefone
+						input(type='text' name='phone' maxlength="15" value=formData.phone placeholder='(XX) XXXXX-XXXX' class="margin-left form-control border-radius default-padding")
 					.form-group.flex(class=validationErrors.enquiryType ? 'has-error' : null required)
 						label(class="black-text margin-bottom") Assunto
 						select(name='enquiryType' class="input-text margin-left form-control border-radius margin-left" placeholder="Selecione o assunto")
