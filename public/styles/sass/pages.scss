@@ -105,6 +105,8 @@ html, body, main {
         padding: 0;
         margin: 0;
         text-shadow: 0 10px 10px rgba(0,0,0,0.5);
+        position: relative;
+        z-index: 120;
 
         @media screen and (max-width: 599px) {
             font-size: 40px;

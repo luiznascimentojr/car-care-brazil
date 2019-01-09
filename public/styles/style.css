@@ -391,7 +391,9 @@ html, body, main {
     font-family: "paralucent-stencil", sans-serif;
     padding: 0;
     margin: 0;
-    text-shadow: 0 10px 10px rgba(0, 0, 0, 0.5); }
+    text-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 120; }
     @media screen and (max-width: 599px) {
       .content-header h1 {
         font-size: 40px; } }

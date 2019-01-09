@@ -99,11 +99,11 @@ block content
                     .group-title-form.text-center.default-padding Informações pessoais
                 .form-group.flex.margin-bottom(class=validationErrors.name ? 'has-error' : null)
                     label(class="form-label margin-right") Nome:
-                    input(type='text' name='name' value=formData.name placeholder="Nome Sobrenome" class="padding-left form-control flex-item input-text")
+                    input(type='text' name='name' value=formData.name placeholder="Nome Sobrenome" class="padding-left form-control flex-item input-text" required)
                 div.flex-form
                     .form-group.flex.flex-item(class=validationErrors.telefone ? 'has-error' : null)
                             label(class="form-label margin-right") Telefone:
-                            input(type='text' name='telefone'  maxlength="15" placeholder="(XX) XXXXX-XXXX" value=formData.telefone class="padding-left form-control flex-item input-text phone-mask")
+                            input(type='text' name='telefone'  maxlength="15" placeholder="(XX) XXXXX-XXXX" value=formData.telefone class="padding-left form-control flex-item input-text phone-mask" required)
                     //- .form-group.flex.flex-item.margin-bottom(class=validationErrors.email ? 'has-error' : null)
                     //-         label(class="form-label margin-right margin-left") Email:
                     //-         input(type='email' name='email' value=formData.email placeholder="Email contato" class="padding-left form-control flex-item input-text")
@@ -142,15 +142,15 @@ block content
                     .form-group.flex.flex-item.margin-bottom(class=validationErrors.marcaCarro ? 'has-error' : null)
                             label(class="form-label margin-right") Marca:
                             .input-text.padding-left.flex-item
-                                select(name='marcaCarro' id="marcas" value=formData.marcaCarro class="form-control margin-right")
+                                select(name='marcaCarro' id="marcas" value=formData.marcaCarro class="form-control margin-right" required)
                     .form-group.flex.flex-item.margin-bottom(class=validationErrors.modeloCarro ? 'has-error' : null)
                             label(class="form-label margin-right margin-left") Modelo:
                             .input-text.padding-left.flex-item 
-                                select(name='modeloCarro' id="modelos" value=formData.modeloCarro class="form-control margin-right")
+                                select(name='modeloCarro' id="modelos" value=formData.modeloCarro class="form-control margin-right" required)
                     .form-group.flex.flex-item.margin-bottom(class=validationErrors.anoCarro ? 'has-error' : null)
                             label(class="form-label margin-right margin-left") Ano:
                             .input-text.padding-left.flex-item 
-                                select(name='anoCarro' id="anos" value=formData.anoCarro class="form-control margin-right")
+                                select(name='anoCarro' id="anos" value=formData.anoCarro class="form-control margin-right" required)
                     //- .form-group.flex.flex-item.margin-bottom(class=validationErrors.versaoCarro ? 'has-error' : null)
                     //-         label(class="form-label margin-right margin-left") Versão:
                     //-         .input-text.padding-left.flex-item 
@@ -169,13 +169,13 @@ block content
                     .group-title-form.text-center.default-padding Descreva seu problema
                 .form-group.flex.margin-bottom(class=validationErrors.mensagem ? 'has-error' : null)
                     label(class="form-label margin-right") Mensagem:
-                    input(type='textarea' rows="8" name='mensagem' value=formData.mensagem placeholder="Detalhes do serviço" class="padding-left form-control flex-item input-text")
+                    input(type='textarea' rows="8" name='mensagem' value=formData.mensagem placeholder="Detalhes do serviço" class="padding-left form-control flex-item input-text" required)
                 .divider-form.flex
                     .divider
                     .group-title-form.text-center.default-padding Disponibilidade de Atendimento
                 .form-group.flex.margin-bottom(class=validationErrors.disponibilidade Dia ? 'has-error' : null)
                     label(class="form-label margin-right") Dia da semana:
-                    radiogroup(id="disponibilidade" value=formData.disponibilidade class="form-control")
+                    radiogroup(id="disponibilidade" value=formData.disponibilidade class="form-control" required)
                         input(name="disponibilidade" type='checkbox' id="segunda-feira" value="segunda-feira" class="checkbox-input")
                         label(for="segunda-feira" class="checkbox-label margin-right") Segunda-feira
                         input(name="disponibilidade" type='checkbox' id="terca-feira" value="terça-feira")
