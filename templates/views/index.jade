@@ -69,7 +69,7 @@ block content
                             p #{ser.description}
         <button class="next shadow border-radius margin-right">&rarr;</button>
         <button class="prev shadow border-radius margin-right">&larr;</button>
-        <a href="http://localhost:3000/contato?trabalhe" class="shadow border-radius margin-right">Trabalhe Conosco</a>  
+        <button class="shadow border-radius margin-right" onclick="window.location.href='http://localhost:3000/contato?trabalhe'">Trabalhe Conosco</button>  
 
     article#depoimentos.wrapper
         h1(class="title-section default-margin") Depoimentos
@@ -85,12 +85,12 @@ block content
                     p.depoimento-cidade.clear #{depoimento.cidade} 
         <button class="next-2 shadow border-radius margin-right">&rarr;</button>
         <button class="prev-2 shadow border-radius margin-right">&larr;</button>
-        <button class="shadow border-radius margin-right">Enviar depoimento</button>   
+        <button class="shadow border-radius margin-right" onclick="window.location.href='http://localhost:3000/contato?depoimento'">Enviar depoimento</button>   
 
     article#orcamento.wrapper
         h1(class="default-margin title-section") Agende agora
         div.text-center
-            p <strong> IMPORTANTE:</strong> Esse formulário é apenas um registro para que possamento entrar em contato, <br> não vincula nenhuma obrigação por parte do cliente.
+            p <strong> IMPORTANTE:</strong> Esse formulário é apenas um registro para que possamos entrar em contato, <br> não vincula nenhuma obrigação por parte do cliente.
         #form(class="center padding-right padding-left")
             form(method='post')
                 input(type='hidden', name='action', value='contact')
@@ -139,18 +139,18 @@ block content
                     //-             select(name='tipoCarro' value=formData.tipoCarro class="form-control margin-right" onClick='setCities(this.value, "cidades")')
                     //-                 each estado, i in estados
                     //-                     option(value=estado.name) #{estado.name}
-                    .form-group.flex.flex-item.margin-bottom(class=validationErrors.marcaCarro ? 'has-error' : null)
+                    .form-group.flex.margin-bottom(class=validationErrors.marcaCarro ? 'has-error' : null)
                             label(class="form-label margin-right") Marca:
                             .input-text.padding-left.flex-item
-                                select(name='marcaCarro' id="marcas" value=formData.marcaCarro class="form-control margin-right" required)
-                    .form-group.flex.flex-item.margin-bottom(class=validationErrors.modeloCarro ? 'has-error' : null)
+                                select(name='marcaCarro' id="marcas" value=formData.marcaCarro class="form-control margin-right padding-right select-car" required)
+                    .form-group.flex.margin-bottom(class=validationErrors.modeloCarro ? 'has-error' : null)
                             label(class="form-label margin-right margin-left") Modelo:
                             .input-text.padding-left.flex-item 
-                                select(name='modeloCarro' id="modelos" value=formData.modeloCarro class="form-control margin-right" required)
-                    .form-group.flex.flex-item.margin-bottom(class=validationErrors.anoCarro ? 'has-error' : null)
+                                select(name='modeloCarro' id="modelos" value=formData.modeloCarro class="form-control margin-right padding-right select-car" required)
+                    .form-group.flex.margin-bottom(class=validationErrors.anoCarro ? 'has-error' : null)
                             label(class="form-label margin-right margin-left") Ano:
                             .input-text.padding-left.flex-item 
-                                select(name='anoCarro' id="anos" value=formData.anoCarro class="form-control margin-right" required)
+                                select(name='anoCarro' id="anos" value=formData.anoCarro class="form-control margin-right padding-right select-car" required)
                     //- .form-group.flex.flex-item.margin-bottom(class=validationErrors.versaoCarro ? 'has-error' : null)
                     //-         label(class="form-label margin-right margin-left") Versão:
                     //-         .input-text.padding-left.flex-item 

@@ -19,12 +19,12 @@ block content
 						label(class="black-text margin-bottom") Email
 						input(type='email' name='email' value=formData.email required placeholder="Email" class="margin-left form-control border-radius default-padding")
 					.form-group.flex
-						label(class="black-text margin-bottom phone-mask") Telefone
-						input(type='text' name='phone' maxlength="15" value=formData.phone placeholder='(XX) XXXXX-XXXX' class="margin-left form-control border-radius default-padding")
+						label(class="black-text margin-bottom") Telefone
+						input(type='text' name='phone' maxlength="15" value=formData.phone placeholder='(XX) XXXXX-XXXX' class="phone-mask padding-left form-control border-radius default-padding")
 					.form-group.flex(class=validationErrors.enquiryType ? 'has-error' : null required)
 						label(class="black-text margin-bottom") Assunto
-						select(id="select-assunto" name='enquiryType' class="input-text margin-left form-control border-radius margin-left" placeholder="Selecione o assunto")
-							option(value='Geral' class="margin-left") Selecione o assunto
+						select(required id="select-assunto" name='enquiryType' class="input-text margin-left form-control border-radius margin-left" placeholder="Selecione o assunto")
+							option(disabled selected value) Selecione o assunto
 							each type in enquiryTypes
 								option(class="margin-left" value=type.value selected=formData.enquiryType === type.value)= type.label
 					.form-group.flex(class=validationErrors.message ? 'has-error' : null)
@@ -32,3 +32,8 @@ block content
 						textarea(name='message' placeholder='Deixe sua mensagem...' required class="form-control border-radius default-padding")
 					.form-group.flex
 						button(type='submit' class="border-radius flex flex-justify-content-center default-padding")#submit Enviar
+	
+	script(type="text/javascript").
+		var hu = window.location.search.substring(1);
+		var gy = hu.split("?");
+		$('#select-assunto').val(gy[0]);

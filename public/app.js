@@ -216,11 +216,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		}
   });
 
-
-  var hu = window.location.search.substring(1);
-  var gy = hu.split("?");
-
-  console.log(hu, gy);
-  $('#select-assunto').value = gy[1];
-
 });

@@ -31,7 +31,7 @@ var routes = {
 exports = module.exports = function(app) {
     
     app.all('/', routes.views.index);
-    app.get('/page/:page', routes.views.page);
+    app.all('/page/:page', routes.views.page);
     app.all('/contato', routes.views.contact);
     
 };
