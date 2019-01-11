@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 var Orcamento = keystone.list('Orcamento');
+const nodemailer = require("nodemailer");
  
 exports = module.exports = function(req, res) {
     
@@ -104,10 +105,52 @@ exports = module.exports = function(req, res) {
 				console.log(err);
 			} else {
 				locals.enquirySubmitted = true;
+				main(req.body).catch(console.error); 
 			}
 			next();
 		});
 
 	});
+
+	// async..await is not allowed in global scope, must use a wrapper
+	async function main(body){
+
+		// Generate test SMTP service account from ethereal.email
+		// Only needed if you don't have a real mail account for testing
+		let account = await nodemailer.createTestAccount();
+	
+		// create reusable transporter object using the default SMTP transport
+		let transporter = nodemailer.createTransport({
+		host: 'smtp.gmail.com',
+		port: 465,
+		secure: true,
+		auth: {
+			user: "carcarebrazil@gmail.com", // generated ethereal user
+			pass: "ccbr2018" // generated ethereal password
+		}
+		});
+	
+		// setup email data with unicode symbols
+		let mailOptions = {
+		from: '"Car Care Brazil" <carcarebrazil@gmail.com>', // sender address
+		to: "carcarebrazil@gmail.com", // list of receivers
+		subject: "Solicitação de serviço ✔", // Subject line
+		text: "Hello world?", // plain text body
+		html: "<b>Cliente: </b>" + body.name + "<br>" +
+			  "<b>Telefone: </b>" + body.telefone + "<br>" +
+			  "<b>Atendimento via: </b>" + body.atendimento + "<br>" +
+			  "<b>Marca do carro: </b>" + body.marcaCarro + "<br>" +
+			  "<b>Modelo do carro: </b>" + body.modeloCarro + "<br>" +
+			  "<b>Ano do carro: </b>" + body.anoCarro + "<br>" +
+			  "<b>Mensagem: </b>" + body.mensagem + "<br>" +
+			  "<b>Disponibilidade: </b>" + body.disponibilidade.toString() + "<br>" +
+			  "<b>Período do dia: </b>" + body.periodo.toString() + "<br>"
+		};
+	
+		// send mail with defined transport object
+		let info = await transporter.sendMail(mailOptions)
+	
+		console.log("Message sent: %s", info.messageId);
+	} 
     
 };

@@ -428,7 +428,7 @@ html, body, main {
   right: -100px;
   bottom: -100px;
   z-index: 110; }
-  @media screen and (max-width: 599px) {
+  @media screen and (max-width: 720px) {
     #car {
       display: none; } }
 
@@ -608,7 +608,7 @@ header nav {
   display: table;
   text-decoration: none; }
 
-@media only screen and (max-width: 599px) {
+@media only screen and (max-width: 720px) {
   #small-nav {
     display: block; }
   #large-nav {
@@ -628,7 +628,7 @@ header nav {
   #contact #form .form-group input, #contact #form .form-group textarea {
     margin: 5px 0 15px 0; } }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 721px) {
   #large-nav a {
     margin-left: 10px; }
   #small-nav {

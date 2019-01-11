@@ -147,7 +147,7 @@ html, body, main {
     right: -100px;
     bottom: -100px;
     z-index: 110;
-    @media screen and (max-width: 599px) {
+    @media screen and (max-width: 720px) {
         display: none;
     }
 }

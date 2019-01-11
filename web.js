@@ -1,7 +1,7 @@
 var keystone = require('keystone');
 keystone.init({
   
-  'name': 'Caio Resende',
+  'name': 'Car Care Brazil',
   
   'favicon': 'public/favicon.ico',
   'sass': 'public',
