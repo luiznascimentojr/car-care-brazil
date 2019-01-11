@@ -78,6 +78,8 @@ exports = module.exports = function(req, res) {
 		var updater = application.getUpdateHandler(req);
 		var d = req.body.disponibilidade;
 		var p = req.body.periodo;
+		
+		req.body.ordemServico = Math.floor(new Date().valueOf()).toString();
 
 		if (d && d.length > 1) {
 			var dString = '';
@@ -103,7 +105,9 @@ exports = module.exports = function(req, res) {
 				console.log(err);
 			} else {
 				locals.enquirySubmitted = true;
-				//main(req.body).catch(console.error); 
+				locals.ordemServico = req.body.ordemServico;
+				locals.formData = {};
+				main(req.body).catch(console.error); 
 			}
 			next();
 		});
@@ -140,7 +144,7 @@ exports = module.exports = function(req, res) {
 		let mailOptions = {
 		from: '"Car Care Brazil" <carcarebrazil@gmail.com>', // sender address
 		to: "carcarebrazil@gmail.com", // list of receivers
-		subject: "Solicitação de serviço ✔", // Subject line
+		subject: "Solicitação de serviço nº: " + body.ordemServico + " ✔", // Subject line
 		text: "Hello world?", // plain text body
 		html: "<b>Cliente: </b>" + body.name + "<br>" +
 			  "<b>Telefone: </b>" + body.telefone + "<br>" +
