@@ -1,199 +1,182 @@
 extends ../layouts/base
  
 block content
-    script.
-        var cids = [];
+    if enquirySubmitted
+        .jumbotron.text-center
+            h1 Successo!
+                p Obrigado pela sua mensagem! <br> Em breve entraremos em contato.
+    else
+        header#topo
+            .container
+                .background
+                .content-header.flex.flex-align-center
+                    .wrapper
+                        img#logo(src="./../../images/logo.png", alt="logo car care brazil")
+                        h2 Sem tempo para <b>cuidar</b> do seu carro?
+                        h1 Cuidamos do seu carro para você
+                        //p nos serviços de manutenção do seu carro.
+                        button(onClick="document.getElementById('orcamento').scrollIntoView();") <b>AGENDE AGORA</b>
+                        img#car(src="./../../images/car.png", alt="carro bmw azul")
 
-        var setCities = function(state, id) {
-            console.log(state);
-            var obj = JSON.parse(state);
-            console.log(state);
-            cids = obj;
-            addOptions(id, cids);
-        };
+        article#historia.wrapper
+            h1(class="default-margin title-section") Por que escolher a Car Care Brazil
+            .story.flex
+                img(class="img-story border-radius flex-item shadow" src="./../../images/keys-car.jpg")
+                .story-wrapper.shadow.border-radius.flex-item.story-left
+                    h1.title-story Vamos até você
+                    p.content-story <strong>Let's go to you:</strong> Possuímos uma rede de profissionais qualificados que se deslocam até você, buscam seu veículo e retornam com ele até o local combinado no menor tempo possível. Nesse processo são avaliadas todas as necessidades do veículo e executadas as manutenções preventivas e corretivas necessárias.
+                    p.content-story <strong>In Loco:</strong> Efetuamos o serviço de troca de óleo e filtros com equipamentos especializados, assim como outros pequenos serviços, no local de sua preferência.
+            .story.flex
+                .story-wrapper.shadow.border-radius.flex-item.story-right
+                    h1.title-story Interação em tempo real...
+                    p.content-story Nossa tecnologia permite que você acompanhe junto ao especialista o que está acontecendo e decida o que fazer em tempo real. 
+                    p.content-story E ainda possa saber a qualquer momento a hora de fazer as manutenções em seu veículo.
+                img(class="img-story border-radius flex-item shadow" src="./../../images/phone-cars.jpg")
+            .story.flex
+                img(class="img-story border-radius flex-item shadow" src="./../../images/fast-cars.jpeg")
+                .story-wrapper.shadow.border-radius.flex-item.story-left
+                    h1.title-story Garantia e eficiência  do serviço CarCare Brazil
+                    p.content-story  Conte com nossos especialistas para cuidar de seu carro de forma personalizada junto a nossos parceiros, garantindo que sejam feitas somente as manutenções necessárias, sem pagar a mais por isto.
+                    p.content-story Nossa empresa visa sua <b>SEGURANÇA</b>, <b>COMODIDADE</b> e <b>SATISFAÇÃO</b>, para que você possa usufruir de seu <b>TEMPO</b> da melhor forma possível.
 
-        var addOptions = function(selectId, options) {
-            var el = document.getElementById(selectId);
-            el.innerHTML = "";
-            for (var i = 0; i < options.length; i++) {
-                var option = document.createElement("option");
-                option.text = options[i];
-                option.value = options[i];
-                el.add(option);
-            }
-        };
+        article#servicos.wrapper
+            h1(class="default-margin title-section") Serviços
+            div.siema
+                each ser, x in servicos
+                    if ser.destaque
+                        div.servico.border-radius.shadow.margin-bottom.servico-highlight
+                            div.flex-form.flex-column.icone-servico.default-padding
+                                span(class="#{ser.iconCSS}")
+                            div.padding-bottom.padding-left.padding-right
+                                h2 #{ser.name}
+                                p #{ser.description}
+            <button class="next shadow border-radius margin-right">&rarr;</button>
+            <button class="prev shadow border-radius margin-right">&larr;</button>
+            <button class="shadow border-radius margin-right" onclick="window.location.href='http://car-care-brazil.herokuapp.com/contato?trabalhe'">Trabalhe Conosco</button>  
 
-    header#topo
-        .container
-            .background
-            .content-header.flex.flex-align-center
-                .wrapper
-                    img#logo(src="./../../images/logo.png", alt="logo car care brazil")
-                    h2 Sem tempo para <b>cuidar</b> do seu carro?
-                    h1 Cuidamos do seu carro para você
-                    //p nos serviços de manutenção do seu carro.
-                    button(onClick="document.getElementById('orcamento').scrollIntoView();") <b>AGENDE AGORA</b>
-                    img#car(src="./../../images/car.png", alt="carro bmw azul")
-    
-    article#historia.wrapper
-        h1(class="default-margin title-section") Por que escolher a Car Care Brazil
-        .story.flex
-            img(class="img-story border-radius flex-item shadow" src="./../../images/keys-car.jpg")
-            .story-wrapper.shadow.border-radius.flex-item.story-left
-                h1.title-story Vamos até você
-                p.content-story <strong>Let's go to you:</strong> Possuímos uma rede de profissionais qualificados que se deslocam até você, buscam seu veículo e retornam com ele até o local combinado no menor tempo possível. Nesse processo são avaliadas todas as necessidades do veículo e executadas as manutenções preventivas e corretivas necessárias.
-                p.content-story <strong>In Loco:</strong> Efetuamos o serviço de troca de óleo e filtros com equipamentos especializados, assim como outros pequenos serviços, no local de sua preferência.
-        .story.flex
-            .story-wrapper.shadow.border-radius.flex-item.story-right
-                h1.title-story Interação em tempo real...
-                p.content-story Nossa tecnologia permite que você acompanhe junto ao especialista o que está acontecendo e decida o que fazer em tempo real. 
-                p.content-story E ainda possa saber a qualquer momento a hora de fazer as manutenções em seu veículo.
-            img(class="img-story border-radius flex-item shadow" src="./../../images/phone-cars.jpg")
-        .story.flex
-            img(class="img-story border-radius flex-item shadow" src="./../../images/fast-cars.jpeg")
-            .story-wrapper.shadow.border-radius.flex-item.story-left
-                h1.title-story Garantia e eficiência  do serviço CarCare Brazil
-                p.content-story  Conte com nossos especialistas para cuidar de seu carro de forma personalizada junto a nossos parceiros, garantindo que sejam feitas somente as manutenções necessárias, sem pagar a mais por isto.
-                p.content-story Nossa empresa visa sua <b>SEGURANÇA</b>, <b>COMODIDADE</b> e <b>SATISFAÇÃO</b>, para que você possa usufruir de seu <b>TEMPO</b> da melhor forma possível.
+        article#depoimentos.wrapper
+            h1(class="title-section default-margin") Depoimentos
+            div.siema-2
+                each depoimento, d in depoimentos
+                    div.depoimento.default-padding.shadow.border-radius.margin-left.margin-right
+                        p.depoimento-texto.clear.margin-bottom #{depoimento.description}
+                        div.flex-column.flex-align-right
+                            h5.client.clear #{depoimento.name}
+                            div.depoimento-servicos.clear.flex.flex-row
+                            each serv, d in depoimento.servicos
+                                p.depoimento-servico.clear #{servs[serv].name} 
+                        p.depoimento-cidade.clear #{depoimento.cidade} 
+            <button class="next-2 shadow border-radius margin-right">&rarr;</button>
+            <button class="prev-2 shadow border-radius margin-right">&larr;</button>
+            <button class="shadow border-radius margin-right" onclick="window.location.href='http://car-care-brazil.herokuapp.com/contato?depoimento'">Enviar depoimento</button>
 
-    article#servicos.wrapper
-        h1(class="default-margin title-section") Serviços
-        div.siema
-            each ser, x in servicos
-                if ser.destaque
-                    div.servico.border-radius.shadow.margin-bottom.servico-highlight
-                        div.flex-form.flex-column.icone-servico.default-padding
-                            span(class="#{ser.iconCSS}")
-                        div.padding-bottom.padding-left.padding-right
-                            h2 #{ser.name}
-                            p #{ser.description}
-        <button class="next shadow border-radius margin-right">&rarr;</button>
-        <button class="prev shadow border-radius margin-right">&larr;</button>
-        <button class="shadow border-radius margin-right" onclick="window.location.href='http://car-care-brazil.herokuapp.com/contato?trabalhe'">Trabalhe Conosco</button>  
-
-    article#depoimentos.wrapper
-        h1(class="title-section default-margin") Depoimentos
-        div.siema-2
-            each depoimento, d in depoimentos
-                div.depoimento.default-padding.shadow.border-radius.margin-left.margin-right
-                    p.depoimento-texto.clear.margin-bottom #{depoimento.description}
-                    div.flex-column.flex-align-right
-                        h5.client.clear #{depoimento.name}
-                        div.depoimento-servicos.clear.flex.flex-row
-                        each serv, d in depoimento.servicos
-                            p.depoimento-servico.clear #{servs[serv].name} 
-                    p.depoimento-cidade.clear #{depoimento.cidade} 
-        <button class="next-2 shadow border-radius margin-right">&rarr;</button>
-        <button class="prev-2 shadow border-radius margin-right">&larr;</button>
-        <button class="shadow border-radius margin-right" onclick="window.location.href='http://car-care-brazil.herokuapp.com/contato?depoimento'">Enviar depoimento</button> 
-
-    article#orcamento.wrapper
-        h1(class="default-margin title-section") Agende agora
-        div.text-center
-            p <strong> IMPORTANTE:</strong> Esse formulário é apenas um registro para que possamos entrar em contato, <br> não vincula nenhuma obrigação por parte do cliente.
-        #form(class="center padding-right padding-left")
-            form(method='post')
-                input(type='hidden', name='action', value='contact')
-                .divider-form.flex
-                    .divider
-                    .group-title-form.text-center.default-padding Informações pessoais
-                .form-group.flex.margin-bottom(class=validationErrors.name ? 'has-error' : null)
-                    label(class="form-label margin-right") Nome:
-                    input(type='text' name='name' value=formData.name placeholder="Nome Sobrenome" class="padding-left form-control flex-item input-text" required)
-                div.flex-form
-                    .form-group.flex.flex-item(class=validationErrors.telefone ? 'has-error' : null)
-                            label(class="form-label margin-right") Telefone:
-                            input(type='text' name='telefone'  maxlength="15" placeholder="(XX) XXXXX-XXXX" value=formData.telefone class="padding-left form-control flex-item input-text phone-mask" required)
-                    //- .form-group.flex.flex-item.margin-bottom(class=validationErrors.email ? 'has-error' : null)
-                    //-         label(class="form-label margin-right margin-left") Email:
-                    //-         input(type='email' name='email' value=formData.email placeholder="Email contato" class="padding-left form-control flex-item input-text")
-                    .form-group.flex.margin-bottom.margin-left(class=validationErrors.atendimento ? 'has-error' : null)
-                        label(class="form-label margin-right") Contato via:
-                        radiogroup(value=formData.atendimento class="form-control")
-                            input(name='atendimento' type='radio' id="whatsapp" value="whatsapp" class="radio-input")
-                            label(for="whatsapp" class="radio-label margin-right") Whatsapp
-                            input(name='atendimento' type='radio' id="ligação" value="ligação")
-                            label(for="ligação" class="radio-label margin-right") Ligação
-                            input(name='atendimento' type='radio' id="ambos" value="ambos" checked)
-                            label(for="ambos" class="radio-label") Ambos
-                div.flex-form
-                    //- .form-group.flex.flex-item.margin-bottom(class=validationErrors.estado ? 'has-error' : null)
-                    //-         label(class="form-label margin-right") Estado:
-                    //-         .input-text.padding-left.flex-item 
-                    //-             select(name='estado' value=formData.estado class="form-control margin-right" onClick='setCities(this.value, "cidades")')
-                    //-                 each estado, i in estados
-                    //-                     option(value=estado.name) #{estado.name}
-                .form-group.flex.flex-item.margin-bottom(class=validationErrors.cidade ? 'has-error' : null)
-                        label(class="form-label margin-right") Cidade: Belo Horizonte e região. <i>Em breve novas cidades</i>.
-                        //- .input-text.padding-left.flex-item 
-                        //-     select(name='cidade' value=formData.cidade class="form-control margin-right" onClick='setCities(this.value, "cidades")')
-                        //-         each estado, i in estados
-                        //-             option(value=estado.name) #{estado.name}
-                .divider-form.flex
-                    .divider
-                    .group-title-form.text-center.default-padding Seu veículo
-                div.flex-form
-                    //- .form-group.flex.flex-item.margin-bottom(class=validationErrors.tipoCarro ? 'has-error' : null)
-                    //-         label(class="form-label margin-right") Tipo:
-                    //-         .input-text.padding-left.flex-item 
-                    //-             select(name='tipoCarro' value=formData.tipoCarro class="form-control margin-right" onClick='setCities(this.value, "cidades")')
-                    //-                 each estado, i in estados
-                    //-                     option(value=estado.name) #{estado.name}
-                    .form-group.flex.margin-bottom(class=validationErrors.marcaCarro ? 'has-error' : null)
-                            label(class="form-label margin-right") Marca:
-                            .input-text.padding-left.flex-item
-                                select(name='marcaCarro' id="marcas" value=formData.marcaCarro class="form-control margin-right padding-right select-car" required)
-                    .form-group.flex.margin-bottom(class=validationErrors.modeloCarro ? 'has-error' : null)
-                            label(class="form-label margin-right margin-left") Modelo:
-                            .input-text.padding-left.flex-item 
-                                select(name='modeloCarro' id="modelos" value=formData.modeloCarro class="form-control margin-right padding-right select-car" required)
-                    .form-group.flex.margin-bottom(class=validationErrors.anoCarro ? 'has-error' : null)
-                            label(class="form-label margin-right margin-left") Ano:
-                            .input-text.padding-left.flex-item 
-                                select(name='anoCarro' id="anos" value=formData.anoCarro class="form-control margin-right padding-right select-car" required)
-                    //- .form-group.flex.flex-item.margin-bottom(class=validationErrors.versaoCarro ? 'has-error' : null)
-                    //-         label(class="form-label margin-right margin-left") Versão:
-                    //-         .input-text.padding-left.flex-item 
-                    //-             select(name='versaoCarro' value=formData.versaoCarro class="form-control margin-right" onClick='setCities(this.value, "cidades")')
-                    //-                 each estado, i in estados
-                    //-                     option(value=estado.name) #{estado.name}
-                .form-group.flex(class=validationErrors.cidade ? 'has-error' : null)
-                        label(class="form-label margin-right") Serviços:
-                        radiogroup.flex.flex-wrap(id="servico" value=formData.servicos class="form-control")
-                            each servico, j in servicos
-                                .servico-item
-                                    input(type='checkbox' name="servicos" value="#{servico.id}" class="checkbox-input")
-                                    label(for="#{servico.name}" class="checkbox-label") #{servico.name}
-                .divider-form.flex
-                    .divider
-                    .group-title-form.text-center.default-padding Descreva seu problema
-                .form-group.flex.margin-bottom(class=validationErrors.mensagem ? 'has-error' : null)
-                    label(class="form-label margin-right") Mensagem:
-                    input(type='textarea' rows="8" name='mensagem' value=formData.mensagem placeholder="Detalhes do serviço" class="padding-left form-control flex-item input-text" required)
-                .divider-form.flex
-                    .divider
-                    .group-title-form.text-center.default-padding Disponibilidade de Atendimento
-                .form-group.flex.margin-bottom(class=validationErrors.disponibilidade Dia ? 'has-error' : null)
-                    label(class="form-label margin-right") Dia da semana:
-                    radiogroup(id="disponibilidade" value=formData.disponibilidade class="form-control" required)
-                        input(name="disponibilidade" type='checkbox' id="segunda-feira" value="segunda-feira" class="checkbox-input")
-                        label(for="segunda-feira" class="checkbox-label margin-right") Segunda-feira
-                        input(name="disponibilidade" type='checkbox' id="terca-feira" value="terça-feira")
-                        label(for="terca-feira" class="checkbox-label margin-right") terça-feira
-                        input(name="disponibilidade" type='checkbox' id="quarta-feira" value="quarta-feira" class="checkbox-input")
-                        label(for="quarta-feira" class="checkbox-label margin-right") Quarta-feira
-                        input(name="disponibilidade" type='checkbox' id="quinta-feira" value="quinta-feira" class="checkbox-input")
-                        label(for="quinta-feira" class="checkbox-label margin-right") Quinta-feira
-                        input(name="disponibilidade" type='checkbox' id="sexta-feira" value="sexta-feira" class="checkbox-input")
-                        label(for="sexta-feira" class="checkbox-label margin-right") Sexta-feira
-                        input(name="disponibilidade" type='checkbox' id="sabado" value="sabado" class="checkbox-input")
-                        label(for="sabado" class="checkbox-label margin-right") Sábado
-                .form-group.flex.margin-bottom(class=validationErrors.periodo Periodo ? 'has-error' : null)
-                    label(class="form-label margin-right") Período:
-                    radiogroup(id="periodo" value=formData.periodo class="form-control")
-                        input(name="periodo" type='checkbox' id="manha" value="manha" class="checkbox-input")
-                        label(for="manha" class="checkbox-label margin-right") Manhã
-                        input(name="periodo" type='checkbox' id="tarde" value="tarde")
-                        label(for="tarde" class="checkbox-label margin-right") Tarde
-                .form-group.flex
-                    button(type='submit' class="flex-item shadow")#submit Enviar
+            article#orcamento.wrapper
+                h1(class="default-margin title-section") Agende agora
+                div.text-center
+                    p <strong> IMPORTANTE:</strong> Esse formulário é apenas um registro para que possamos entrar em contato, <br> não vincula nenhuma obrigação por parte do cliente.
+                #form(class="center padding-right padding-left")
+                    form(method='post')
+                        input(type='hidden', name='action', value='contact')
+                        .divider-form.flex
+                            .divider
+                            .group-title-form.text-center.default-padding Informações pessoais
+                        .form-group.flex.margin-bottom(class=validationErrors.name ? 'has-error' : null)
+                            label(class="form-label margin-right") Nome:
+                            input(type='text' name='name' value=formData.name placeholder="Nome Sobrenome" class="padding-left form-control flex-item input-text" required)
+                        div.flex-form
+                            .form-group.flex.flex-item(class=validationErrors.telefone ? 'has-error' : null)
+                                    label(class="form-label margin-right") Telefone:
+                                    input(type='text' name='telefone'  maxlength="15" placeholder="(XX) XXXXX-XXXX" value=formData.telefone class="padding-left form-control flex-item input-text phone-mask" required)
+                            //- .form-group.flex.flex-item.margin-bottom(class=validationErrors.email ? 'has-error' : null)
+                            //-         label(class="form-label margin-right margin-left") Email:
+                            //-         input(type='email' name='email' value=formData.email placeholder="Email contato" class="padding-left form-control flex-item input-text")
+                            .form-group.flex.margin-bottom.margin-left(class=validationErrors.atendimento ? 'has-error' : null)
+                                label(class="form-label margin-right") Contato via:
+                                radiogroup(value=formData.atendimento class="form-control")
+                                    input(name='atendimento' type='radio' id="whatsapp" value="whatsapp" class="radio-input")
+                                    label(for="whatsapp" class="radio-label margin-right") Whatsapp
+                                    input(name='atendimento' type='radio' id="ligação" value="ligação")
+                                    label(for="ligação" class="radio-label margin-right") Ligação
+                                    input(name='atendimento' type='radio' id="ambos" value="ambos" checked)
+                                    label(for="ambos" class="radio-label") Ambos
+                        div.flex-form
+                            //- .form-group.flex.flex-item.margin-bottom(class=validationErrors.estado ? 'has-error' : null)
+                            //-         label(class="form-label margin-right") Estado:
+                            //-         .input-text.padding-left.flex-item 
+                            //-             select(name='estado' value=formData.estado class="form-control margin-right" onClick='setCities(this.value, "cidades")')
+                            //-                 each estado, i in estados
+                            //-                     option(value=estado.name) #{estado.name}
+                        .form-group.flex.flex-item.margin-bottom(class=validationErrors.cidade ? 'has-error' : null)
+                                label(class="form-label margin-right") Cidade: Belo Horizonte e região. <i>Em breve novas cidades</i>.
+                                //- .input-text.padding-left.flex-item 
+                                //-     select(name='cidade' value=formData.cidade class="form-control margin-right" onClick='setCities(this.value, "cidades")')
+                                //-         each estado, i in estados
+                                //-             option(value=estado.name) #{estado.name}
+                        .divider-form.flex
+                            .divider
+                            .group-title-form.text-center.default-padding Seu veículo
+                        div.flex-form
+                            //- .form-group.flex.flex-item.margin-bottom(class=validationErrors.tipoCarro ? 'has-error' : null)
+                            //-         label(class="form-label margin-right") Tipo:
+                            //-         .input-text.padding-left.flex-item 
+                            //-             select(name='tipoCarro' value=formData.tipoCarro class="form-control margin-right" onClick='setCities(this.value, "cidades")')
+                            //-                 each estado, i in estados
+                            //-                     option(value=estado.name) #{estado.name}
+                            .form-group.flex.margin-bottom(class=validationErrors.marcaCarro ? 'has-error' : null)
+                                    label(class="form-label margin-right") Marca:
+                                    .input-text.padding-left.flex-item
+                                        select(name='marcaCarro' id="marcas" value=formData.marcaCarro class="form-control margin-right padding-right select-car" required)
+                            .form-group.flex.margin-bottom(class=validationErrors.modeloCarro ? 'has-error' : null)
+                                    label(class="form-label margin-right margin-left") Modelo:
+                                    .input-text.padding-left.flex-item 
+                                        select(name='modeloCarro' id="modelos" value=formData.modeloCarro class="form-control margin-right padding-right select-car" required)
+                            .form-group.flex.margin-bottom(class=validationErrors.anoCarro ? 'has-error' : null)
+                                    label(class="form-label margin-right margin-left") Ano:
+                                    .input-text.padding-left.flex-item 
+                                        select(name='anoCarro' id="anos" value=formData.anoCarro class="form-control margin-right padding-right select-car" required)
+                            //- .form-group.flex.flex-item.margin-bottom(class=validationErrors.versaoCarro ? 'has-error' : null)
+                            //-         label(class="form-label margin-right margin-left") Versão:
+                            //-         .input-text.padding-left.flex-item 
+                            //-             select(name='versaoCarro' value=formData.versaoCarro class="form-control margin-right" onClick='setCities(this.value, "cidades")')
+                            //-                 each estado, i in estados
+                            //-                     option(value=estado.name) #{estado.name}
+                        .form-group.flex(class=validationErrors.cidade ? 'has-error' : null)
+                                label(class="form-label margin-right") Serviços:
+                                radiogroup.flex.flex-wrap(id="servico" value=formData.servicos class="form-control")
+                                    each servico, j in servicos
+                                        .servico-item
+                                            input(type='checkbox' name="servicos" value="#{servico.id}" class="checkbox-input")
+                                            label(for="#{servico.name}" class="checkbox-label") #{servico.name}
+                        .divider-form.flex
+                            .divider
+                            .group-title-form.text-center.default-padding Descreva seu problema
+                        .form-group.flex.margin-bottom(class=validationErrors.mensagem ? 'has-error' : null)
+                            label(class="form-label margin-right") Mensagem:
+                            input(type='textarea' rows="8" name='mensagem' value=formData.mensagem placeholder="Detalhes do serviço" class="padding-left form-control flex-item input-text" required)
+                        .divider-form.flex
+                            .divider
+                            .group-title-form.text-center.default-padding Disponibilidade de Atendimento
+                        .form-group.flex.margin-bottom(class=validationErrors.disponibilidade Dia ? 'has-error' : null)
+                            label(class="form-label margin-right") Dia da semana:
+                            radiogroup(id="disponibilidade" value=formData.disponibilidade class="form-control" required)
+                                input(name="disponibilidade" type='checkbox' id="segunda-feira" value="segunda-feira" class="checkbox-input")
+                                label(for="segunda-feira" class="checkbox-label margin-right") Segunda-feira
+                                input(name="disponibilidade" type='checkbox' id="terca-feira" value="terça-feira")
+                                label(for="terca-feira" class="checkbox-label margin-right") terça-feira
+                                input(name="disponibilidade" type='checkbox' id="quarta-feira" value="quarta-feira" class="checkbox-input")
+                                label(for="quarta-feira" class="checkbox-label margin-right") Quarta-feira
+                                input(name="disponibilidade" type='checkbox' id="quinta-feira" value="quinta-feira" class="checkbox-input")
+                                label(for="quinta-feira" class="checkbox-label margin-right") Quinta-feira
+                                input(name="disponibilidade" type='checkbox' id="sexta-feira" value="sexta-feira" class="checkbox-input")
+                                label(for="sexta-feira" class="checkbox-label margin-right") Sexta-feira
+                                input(name="disponibilidade" type='checkbox' id="sabado" value="sabado" class="checkbox-input")
+                                label(for="sabado" class="checkbox-label margin-right") Sábado
+                        .form-group.flex.margin-bottom(class=validationErrors.periodo Periodo ? 'has-error' : null)
+                            label(class="form-label margin-right") Período:
+                            radiogroup(id="periodo" value=formData.periodo class="form-control")
+                                input(name="periodo" type='checkbox' id="manha" value="manha" class="checkbox-input")
+                                label(for="manha" class="checkbox-label margin-right") Manhã
+                                input(name="periodo" type='checkbox' id="tarde" value="tarde")
+                                label(for="tarde" class="checkbox-label margin-right") Tarde
+                        .form-group.flex
+                            button(type='submit' class="flex-item shadow")#submit Enviar

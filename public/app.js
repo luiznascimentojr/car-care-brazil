@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 				$phone.val($phone.val() + ' ');
 			}			
 			if ($phone.val().length === 10) {
-				$phone.val($phone.val() + '-');
+				$phone.val($phone.val() + ' ');
 			}
 		}
 

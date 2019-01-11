@@ -7,6 +7,7 @@ var Orcamento = new keystone.List('Orcamento', {
 });
 
 Orcamento.add({
+    ordemServico: { type: String, required: false, initial: true, label: 'Ordem de Serviço' },
     name: {type: String, required: false, initial: true, label: 'Nome Cliente' },
     telefone: { type: Number, required: false, initial: true, label: 'Telefone Cliente' },
     atendimento: { type: String, required: false, initial: true, label: 'Preferência Atendimento' },
@@ -28,4 +29,5 @@ Orcamento.add({
 Orcamento.track = true;
 Orcamento.defaultSort = '-createdAt';
 Orcamento.defaultColumns = 'name, OrcamentoType, createdAt';
+
 Orcamento.register();

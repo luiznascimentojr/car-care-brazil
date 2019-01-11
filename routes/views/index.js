@@ -25,21 +25,21 @@ exports = module.exports = function(req, res) {
         locals.depoimentos = depoimentos;
 	});
 	
-	var estados = keystone.list('Estados');
+	// var estados = keystone.list('Estados');
 
-	estados.model.find()
-    .sort('-publishedAt')
-    .exec(function(err, estados) {
-		locals.estados = estados;
-	});
+	// estados.model.find()
+    // .sort('-publishedAt')
+    // .exec(function(err, estados) {
+	// 	locals.estados = estados;
+	// });
 
-	var cidades = keystone.list('Cidades');
+	// var cidades = keystone.list('Cidades');
 
-	cidades.model.find()
-    .sort('-publishedAt')
-    .exec(function(err, estados) {
-        locals.cidades = cidades;
-	});
+	// cidades.model.find()
+    // .sort('-publishedAt')
+    // .exec(function(err, estados) {
+    //     locals.cidades = cidades;
+	// });
 
     
 
@@ -59,22 +59,20 @@ exports = module.exports = function(req, res) {
 		}
 	};
 
-	var loadCities = function(estado) {
-		var citiesId = estado.cidades;
-		var cids = [];
+	// var loadCities = function(estado) {
+	// 	var citiesId = estado.cidades;
+	// 	var cids = [];
 
-		for (var i = 0; i < citiesId.length; i++) {
-			cidades.model.findOne(citiesId[i])
-			.exec(function(err, cidade) {
-				cids.push(cidade);
-				console.log(cids);
-			});
-		}
-	};
+	// 	for (var i = 0; i < citiesId.length; i++) {
+	// 		cidades.model.findOne(citiesId[i])
+	// 		.exec(function(err, cidade) {
+	// 			cids.push(cidade);
+	// 			console.log(cids);
+	// 		});
+	// 	}
+	// };
 
 	view.on('post', { action: 'contact' }, function (next) {
-
-		console.log(req.body);
 
 		var application = new Orcamento.model();
 		var updater = application.getUpdateHandler(req);
@@ -105,7 +103,7 @@ exports = module.exports = function(req, res) {
 				console.log(err);
 			} else {
 				locals.enquirySubmitted = true;
-				main(req.body).catch(console.error); 
+				//main(req.body).catch(console.error); 
 			}
 			next();
 		});
@@ -129,6 +127,14 @@ exports = module.exports = function(req, res) {
 			pass: "ccbr2018" // generated ethereal password
 		}
 		});
+
+		var servs = [];
+
+		if (body.servicos.length) {
+			for (var i = 0; i < body.servicos.length; i++) {
+				servs.push(locals.servs[body.servicos[i]].name);
+			}
+		}
 	
 		// setup email data with unicode symbols
 		let mailOptions = {
@@ -142,6 +148,7 @@ exports = module.exports = function(req, res) {
 			  "<b>Marca do carro: </b>" + body.marcaCarro + "<br>" +
 			  "<b>Modelo do carro: </b>" + body.modeloCarro + "<br>" +
 			  "<b>Ano do carro: </b>" + body.anoCarro + "<br>" +
+			  "<b>Servicos: </b>" + servs + "<br>" +
 			  "<b>Mensagem: </b>" + body.mensagem + "<br>" +
 			  "<b>Disponibilidade: </b>" + body.disponibilidade.toString() + "<br>" +
 			  "<b>Período do dia: </b>" + body.periodo.toString() + "<br>"
