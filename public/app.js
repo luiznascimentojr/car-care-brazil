@@ -72,6 +72,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       .remove()
       .end()
 
+      $select.append($("<option>", { value: '', html: 'Selecione', selected: true, disabled: true }));
+
       $(data).each(function(i, v){
           $select.append($("<option>", { value: v.name, 'data-id': v.id, html: v.name }));
         });
