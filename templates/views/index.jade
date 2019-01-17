@@ -151,7 +151,7 @@ block content
                             .group-title-form.text-center.default-padding Descreva seu problema
                         .form-group.flex.margin-bottom(class=validationErrors.mensagem ? 'has-error' : null)
                             label(class="form-label margin-right") Mensagem:
-                            input(type='textarea' rows="8" name='mensagem' value=formData.mensagem placeholder="Detalhes do serviço" class="padding-left form-control flex-item input-text" required)
+                            textarea(rows="4" cols="50" name='mensagem' value=formData.mensagem placeholder="Detalhes do serviço" class="padding-left form-control flex-item input-text" required)
                         .divider-form.flex
                             .divider
                             .group-title-form.text-center.default-padding Disponibilidade de Atendimento

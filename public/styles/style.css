@@ -211,6 +211,10 @@
   height: 48px;
   line-height: 48px; }
 
+#orcamento #form textarea {
+  height: auto !important;
+  line-height: 20px !important; }
+
 #orcamento #form #submit {
   text-transform: uppercase;
   font-weight: 900;
