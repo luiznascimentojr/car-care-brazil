@@ -640,15 +640,23 @@ header nav {
   display: table;
   text-decoration: none; }
 
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+  #dropdown-menu a {
+    margin: 5% 0 0 5%;
+    width: 20%;
+    padding: 2%; } }
+
+@media only screen and (max-width: 720px) and (orientation: portrait) {
+  #dropdown-menu a {
+    margin: 5% 0 0 5%;
+    width: 35%;
+    padding: 5%; } }
+
 @media only screen and (max-width: 720px) {
   #small-nav {
     display: block; }
   #large-nav {
     display: none; }
-  #dropdown-menu a {
-    margin: 5% 0 0 5%;
-    width: 35%;
-    padding: 5%; }
   #highlight {
     height: 200px;
     padding: 10px; }
