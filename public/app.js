@@ -74,9 +74,27 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       $select.append($("<option>", { value: '', html: 'Selecione', selected: true, disabled: true }));
 
-      $(data).each(function(i, v){
-          $select.append($("<option>", { value: v.name, 'data-id': v.id, html: v.name }));
-        });
+      switch(selector) {
+        case '#marcas':
+          $(data).each(function(i, v){
+            $select.append($("<option>", { value: v.nome, 'data-id': v.codigo, html: v.nome }));
+          });
+          break;
+        case '#modelos':
+          $(data.modelos).each(function(i, v){
+            $select.append($("<option>", { value: v.nome, 'data-id': v.codigo, html: v.nome }));
+          });
+          break;
+        case '#anos':
+          $(data).each(function(i, v){
+            $select.append($("<option>", { value: v.nome, 'data-id': v.codigo, html: v.nome }));
+          });
+          break;
+        default:
+          break;
+      }
+
+      
     };
 
     var clearInputs = function(inputs) {
@@ -140,13 +158,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       switch(selector) {
         case '#marcas':
-          url = 'http://fipeapi.appspot.com/api/1/carros/marcas.json';
+          url = 'https://parallelum.com.br/fipe/api/v1/carros/marcas';
           break;
         case '#modelos':
-          url = 'http://fipeapi.appspot.com/api/1/carros/veiculos/' + p[0] + '.json';
+          url = 'https://parallelum.com.br/fipe/api/v1/carros/marcas/' + p[0] + '/modelos';
           break;
         case '#anos':
-          url = 'http://fipeapi.appspot.com/api/1/carros/veiculo/' + p[0] + '/' + p[1] + '.json';
+          url = 'https://parallelum.com.br/fipe/api/v1/carros/marcas/' + p[0] + '/modelos/' + p[1] + '/anos';
           params.splice(-1,1);
           break;
         default:
