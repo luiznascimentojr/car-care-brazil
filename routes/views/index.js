@@ -142,7 +142,7 @@ exports = module.exports = function(req, res) {
 	
 		// setup email data with unicode symbols
 		let mailOptions = {
-		from: '"Car Care Brazil" <carcarebrazil@gmail.com>', // sender address
+		from: '"All Done Car Service" <carcarebrazil@gmail.com>', // sender address
 		to: "carcarebrazil@gmail.com", // list of receivers
 		subject: "Solicitação de serviço nº: " + body.ordemServico + " ✔", // Subject line
 		text: "Hello world?", // plain text body
