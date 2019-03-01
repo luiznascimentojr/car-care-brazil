@@ -47,6 +47,10 @@
 
 .servico-item {
     width: 33%;
+
+    @media screen and (max-width: 599px) {
+        width: 100%;
+    }
 }
 
 #orcamento {
