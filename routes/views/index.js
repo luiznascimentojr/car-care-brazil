@@ -97,6 +97,16 @@ exports = module.exports = function(req, res) {
 			req.body.periodo = pString;
 		}
 
+		req.body.servs = [];
+
+		if (req.body.servicos.length) {
+			for (var i = 0; i < req.body.servicos.length; i++) {
+				req.body.servs.push(locals.servs[req.body.servicos[i]].name);
+			}
+		}
+
+		locals.formData.servs = req.body.servs.join(', ');
+
 		updater.process(req.body, {
 			flashErrors: true
 		}, function (err) {
@@ -106,7 +116,6 @@ exports = module.exports = function(req, res) {
 			} else {
 				locals.enquirySubmitted = true;
 				locals.ordemServico = req.body.ordemServico;
-				locals.formData = {};
 				main(req.body).catch(console.error); 
 			}
 			next();
@@ -130,14 +139,6 @@ exports = module.exports = function(req, res) {
 		}
 		});
 
-		var servs = [];
-
-		if (body.servicos.length) {
-			for (var i = 0; i < body.servicos.length; i++) {
-				servs.push(locals.servs[body.servicos[i]].name);
-			}
-		}
-	
 		// setup email data with unicode symbols
 		let mailOptions = {
 		from: '"All Done Car Service" <carcarebrazil@gmail.com>', // sender address
@@ -150,16 +151,14 @@ exports = module.exports = function(req, res) {
 			  "<b>Marca do carro: </b>" + body.marcaCarro + "<br>" +
 			  "<b>Modelo do carro: </b>" + body.modeloCarro + "<br>" +
 			  "<b>Ano do carro: </b>" + body.anoCarro + "<br>" +
-			  "<b>Servicos: </b>" + servs + "<br>" +
+			  "<b>Servicos: </b>" + body.servs + "<br>" +
 			  "<b>Mensagem: </b>" + body.mensagem + "<br>" +
 			  "<b>Disponibilidade: </b>" + body.disponibilidade.toString() + "<br>" +
 			  "<b>Período do dia: </b>" + body.periodo.toString() + "<br>"
 		};
 	
 		// send mail with defined transport object
-		let info = await transporter.sendMail(mailOptions)
-	
-		console.log("Message sent: %s", info.messageId);
+		let info = await transporter.sendMail(mailOptions);
 	} 
     
 };

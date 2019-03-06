@@ -550,6 +550,11 @@ html, body, main {
   font-weight: 300;
   text-align: center; }
 
+.jumbotron {
+  width: 320px;
+  display: block;
+  margin: 100px auto 100px; }
+
 body {
   font-family: "Montserrat", sans-serif; }
 

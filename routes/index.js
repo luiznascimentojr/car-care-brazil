@@ -33,6 +33,7 @@ exports = module.exports = function(app) {
     
     app.all('/', routes.views.index);
     app.all('/page/:page', routes.views.page);
+    app.all('/pedido/:pedido', routes.views.pedido);
     app.all('/contato', routes.views.contact);
     
 };
