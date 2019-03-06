@@ -1,7 +1,7 @@
 var keystone = require('keystone');
 keystone.init({
   
-  'name': 'Car Care Brazil',
+  'name': 'All Done Car Service',
   
   'favicon': 'public/favicon.ico',
   'sass': 'public',
