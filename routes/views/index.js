@@ -154,6 +154,16 @@ exports = module.exports = function(req, res) {
 				rejectUnauthorized: false
 			}
 		});
+		
+		var disp = '';
+		if (body.disponibilidade && body.disponibilidade.length > 0) {
+			var disp = body.disponibilidade.toString()
+		}
+
+		var per = '';
+		if (body.periodo && body.periodo.length > 0) {
+			per = body.periodo.toString();
+		}
 
 		// setup email data with unicode symbols
 		let mailOptions = {
@@ -169,11 +179,9 @@ exports = module.exports = function(req, res) {
 			  "<b>Ano do carro: </b>" + body.anoCarro + "<br>" +
 			  "<b>Servicos: </b>" + body.servs + "<br>" +
 			  "<b>Mensagem: </b>" + body.mensagem + "<br>" +
-			  "<b>Disponibilidade: </b>" + body.disponibilidade.length && body.disponibilidade.toString() + "<br>" +
-			  "<b>Período do dia: </b>" + body.periodo.length && body.periodo.toString() + "<br>"
+			  "<b>Disponibilidade: </b>" + disp + "<br>" +
+			  "<b>Período do dia: </b>" + per + "<br>"
 		};
-
-		console.log(smtpTransport)
 
 		// send mail with defined transport object
 		smtpTransport.sendMail(mailOptions, (error, response) => {
