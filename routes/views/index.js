@@ -1,6 +1,8 @@
 var keystone = require('keystone');
 var Orcamento = keystone.list('Orcamento');
 const nodemailer = require("nodemailer");
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
  
 exports = module.exports = function(req, res) {
     
@@ -126,17 +128,31 @@ exports = module.exports = function(req, res) {
 	// async..await is not allowed in global scope, must use a wrapper
 	async function main(body){
 
-		// Generate test SMTP service account from ethereal.email
-		// Only needed if you don't have a real mail account for testing
-		let account = await nodemailer.createTestAccount();
+		const oauth2Client = new OAuth2(
+			"430361646430-9qrgnb7jusbpi5q3hs5p8apc7809s77g.apps.googleusercontent.com", // ClientID
+			"-kvISwDvyNkkPXQuZOMsprkm", // Client Secret
+			"https://developers.google.com/oauthplayground" // Redirect URL
+		);
 	
-		// create reusable transporter object using the default SMTP transport
-		let transporter = nodemailer.createTransport({
-		service: 'Gmail',
-		auth: {
-			user: "carcarebrazil@gmail.com", // generated ethereal user
-			pass: "ccbr2018" // generated ethereal password
-		}
+		oauth2Client.setCredentials({
+			refresh_token: "1/mXWYbd0yKN6zxl0Q6yrYe-G6HNDp55Q57Y12FabQsOvqkXXpg6ZxFxocEg8OwY-d"
+		});
+	   	const tokens = await oauth2Client.refreshAccessToken()
+		const accessToken = tokens.credentials.access_token		   
+	
+		const smtpTransport = nodemailer.createTransport({
+			service: "gmail",
+			auth: {
+				type: "OAuth2",
+				user: "carcarebrazil@gmail.com", 
+				clientId: "430361646430-9qrgnb7jusbpi5q3hs5p8apc7809s77g.apps.googleusercontent.com",
+				clientSecret: "-kvISwDvyNkkPXQuZOMsprkm",
+				refreshToken: "1/mXWYbd0yKN6zxl0Q6yrYe-G6HNDp55Q57Y12FabQsOvqkXXpg6ZxFxocEg8OwY-d",
+				accessToken: accessToken
+			},
+			tls: {
+				rejectUnauthorized: false
+			}
 		});
 
 		// setup email data with unicode symbols
@@ -156,9 +172,14 @@ exports = module.exports = function(req, res) {
 			  "<b>Disponibilidade: </b>" + body.disponibilidade.toString() + "<br>" +
 			  "<b>Período do dia: </b>" + body.periodo.toString() + "<br>"
 		};
-	
+
+		console.log(smtpTransport)
+
 		// send mail with defined transport object
-		let info = await transporter.sendMail(mailOptions);
+		smtpTransport.sendMail(mailOptions, (error, response) => {
+			error ? console.log(error) : console.log(response);
+			smtpTransport.close();
+	   });
 	} 
     
 };
