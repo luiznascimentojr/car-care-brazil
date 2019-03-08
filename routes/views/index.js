@@ -135,7 +135,7 @@ exports = module.exports = function(req, res) {
 		);
 	
 		oauth2Client.setCredentials({
-			refresh_token: "1/mXWYbd0yKN6zxl0Q6yrYe-G6HNDp55Q57Y12FabQsOvqkXXpg6ZxFxocEg8OwY-d"
+			refresh_token: "1/j8u16wCz6oJBZ_j4XHksHvMWwkeHYoTQbc73ldTAcnk1SCgLUVU7F5WAEZsmLcZx"
 		});
 	   	const tokens = await oauth2Client.refreshAccessToken()
 		const accessToken = tokens.credentials.access_token		   
@@ -147,7 +147,7 @@ exports = module.exports = function(req, res) {
 				user: "carcarebrazil@gmail.com", 
 				clientId: "430361646430-9qrgnb7jusbpi5q3hs5p8apc7809s77g.apps.googleusercontent.com",
 				clientSecret: "-kvISwDvyNkkPXQuZOMsprkm",
-				refreshToken: "1/mXWYbd0yKN6zxl0Q6yrYe-G6HNDp55Q57Y12FabQsOvqkXXpg6ZxFxocEg8OwY-d",
+				refreshToken: "1/j8u16wCz6oJBZ_j4XHksHvMWwkeHYoTQbc73ldTAcnk1SCgLUVU7F5WAEZsmLcZx",
 				accessToken: accessToken
 			},
 			tls: {
@@ -169,8 +169,8 @@ exports = module.exports = function(req, res) {
 			  "<b>Ano do carro: </b>" + body.anoCarro + "<br>" +
 			  "<b>Servicos: </b>" + body.servs + "<br>" +
 			  "<b>Mensagem: </b>" + body.mensagem + "<br>" +
-			  "<b>Disponibilidade: </b>" + body.disponibilidade.toString() + "<br>" +
-			  "<b>Período do dia: </b>" + body.periodo.toString() + "<br>"
+			  "<b>Disponibilidade: </b>" + body.disponibilidade.length && body.disponibilidade.toString() + "<br>" +
+			  "<b>Período do dia: </b>" + body.periodo.length && body.periodo.toString() + "<br>"
 		};
 
 		console.log(smtpTransport)
