@@ -26,6 +26,9 @@
     .padding-right { padding-right: $default-space; }
     .padding-top { padding-top: $default-space; }
     .padding-bottom { padding-bottom: $default-space; }
+
+    .small-padding-top { padding-top: $default-space / 2 }
+    .small-padding-right { padding-right: $default-space / 2 }
 }
 
 @media screen and (max-width: 599px) {

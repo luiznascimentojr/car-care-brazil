@@ -45,7 +45,11 @@
   .padding-top {
     padding-top: 10px; }
   .padding-bottom {
-    padding-bottom: 10px; } }
+    padding-bottom: 10px; }
+  .small-padding-top {
+    padding-top: 5px; }
+  .small-padding-right {
+    padding-right: 5px; } }
 
 @media screen and (min-width: 600px) {
   .default-margin {
@@ -67,7 +71,11 @@
   .padding-top {
     padding-top: 20px; }
   .padding-bottom {
-    padding-bottom: 20px; } }
+    padding-bottom: 20px; }
+  .small-padding-top {
+    padding-top: 10px; }
+  .small-padding-right {
+    padding-right: 10px; } }
 
 .no-margin {
   margin: 0; }
