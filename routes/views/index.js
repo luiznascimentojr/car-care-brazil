@@ -13,7 +13,7 @@ exports = module.exports = function(req, res) {
 	var servicos = keystone.list('Servicos');
 	
 	servicos.model.find()
-    .sort('-publishedAt')
+    .sort('order')
     .exec(function(err, servicos) {
 		transformServices(servicos);
         locals.servicos = servicos;
@@ -22,7 +22,7 @@ exports = module.exports = function(req, res) {
 	var depoimentos = keystone.list('Depoimentos');
 
 	depoimentos.model.find()
-    .sort('-publishedAt')
+    .sort('order')
     .exec(function(err, depoimentos) {
         locals.depoimentos = depoimentos;
 	});
