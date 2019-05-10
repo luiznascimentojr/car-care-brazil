@@ -162,30 +162,31 @@ block content
                     .form-group.flex.margin-bottom(class=validationErrors.mensagem ? 'has-error' : null)
                         label(class="form-label margin-right") Mensagem:
                         textarea(rows="4" cols="50" name='mensagem' value=formData.mensagem placeholder="Detalhes do serviço" class="padding-left form-control flex-item input-text" required)
-                    .divider-form.flex
-                        .divider
-                        .group-title-form.text-center.default-padding Disponibilidade de Atendimento
-                    .form-group.flex.margin-bottom(class=validationErrors.disponibilidade Dia ? 'has-error' : null)
-                        label(class="form-label margin-right") Dia da semana:
-                        radiogroup(id="disponibilidade" value=formData.disponibilidade class="form-control" required)
-                            input(name="disponibilidade" type='checkbox' id="segunda-feira" value="segunda-feira" class="checkbox-input")
-                            label(for="segunda-feira" class="checkbox-label margin-right") Segunda-feira
-                            input(name="disponibilidade" type='checkbox' id="terca-feira" value="terça-feira")
-                            label(for="terca-feira" class="checkbox-label margin-right") terça-feira
-                            input(name="disponibilidade" type='checkbox' id="quarta-feira" value="quarta-feira" class="checkbox-input")
-                            label(for="quarta-feira" class="checkbox-label margin-right") Quarta-feira
-                            input(name="disponibilidade" type='checkbox' id="quinta-feira" value="quinta-feira" class="checkbox-input")
-                            label(for="quinta-feira" class="checkbox-label margin-right") Quinta-feira
-                            input(name="disponibilidade" type='checkbox' id="sexta-feira" value="sexta-feira" class="checkbox-input")
-                            label(for="sexta-feira" class="checkbox-label margin-right") Sexta-feira
-                            input(name="disponibilidade" type='checkbox' id="sabado" value="sabado" class="checkbox-input")
-                            label(for="sabado" class="checkbox-label margin-right") Sábado
-                    .form-group.flex.margin-bottom(class=validationErrors.periodo Periodo ? 'has-error' : null)
-                        label(class="form-label margin-right") Período:
-                        radiogroup(id="periodo" value=formData.periodo class="form-control")
-                            input(name="periodo" type='checkbox' id="manha" value="manha" class="checkbox-input")
-                            label(for="manha" class="checkbox-label margin-right") Manhã
-                            input(name="periodo" type='checkbox' id="tarde" value="tarde")
-                            label(for="tarde" class="checkbox-label margin-right") Tarde
+                        
+                    //- .divider-form.flex
+                    //-     .divider
+                    //-     .group-title-form.text-center.default-padding Disponibilidade de Atendimento
+                    //- .form-group.flex.margin-bottom(class=validationErrors.disponibilidade Dia ? 'has-error' : null)
+                    //-     label(class="form-label margin-right") Dia da semana:
+                    //-     radiogroup(id="disponibilidade" value=formData.disponibilidade class="form-control" required)
+                    //-         input(name="disponibilidade" type='checkbox' id="segunda-feira" value="segunda-feira" class="checkbox-input")
+                    //-         label(for="segunda-feira" class="checkbox-label margin-right") Segunda-feira
+                    //-         input(name="disponibilidade" type='checkbox' id="terca-feira" value="terça-feira")
+                    //-         label(for="terca-feira" class="checkbox-label margin-right") terça-feira
+                    //-         input(name="disponibilidade" type='checkbox' id="quarta-feira" value="quarta-feira" class="checkbox-input")
+                    //-         label(for="quarta-feira" class="checkbox-label margin-right") Quarta-feira
+                    //-         input(name="disponibilidade" type='checkbox' id="quinta-feira" value="quinta-feira" class="checkbox-input")
+                    //-         label(for="quinta-feira" class="checkbox-label margin-right") Quinta-feira
+                    //-         input(name="disponibilidade" type='checkbox' id="sexta-feira" value="sexta-feira" class="checkbox-input")
+                    //-         label(for="sexta-feira" class="checkbox-label margin-right") Sexta-feira
+                    //-         input(name="disponibilidade" type='checkbox' id="sabado" value="sabado" class="checkbox-input")
+                    //-         label(for="sabado" class="checkbox-label margin-right") Sábado
+                    //- .form-group.flex.margin-bottom(class=validationErrors.periodo Periodo ? 'has-error' : null)
+                    //-     label(class="form-label margin-right") Período:
+                    //-     radiogroup(id="periodo" value=formData.periodo class="form-control")
+                    //-         input(name="periodo" type='checkbox' id="manha" value="manha" class="checkbox-input")
+                    //-         label(for="manha" class="checkbox-label margin-right") Manhã
+                    //-         input(name="periodo" type='checkbox' id="tarde" value="tarde")
+                    //-         label(for="tarde" class="checkbox-label margin-right") Tarde
                     .form-group.flex
                         button(type='submit' class="flex-item shadow")#submit Enviar
