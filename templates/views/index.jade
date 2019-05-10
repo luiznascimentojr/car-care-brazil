@@ -82,32 +82,32 @@ block content
         article#orcamento.wrapper
             h1(class="default-margin title-section") Agende agora
             div.text-center
-                p <strong> IMPORTANTE:</strong> Clique no botão abaixo e entre em contato conosco, diretamente pelo whastapp.
+                p <strong> IMPORTANTE:</strong> Esse formulário é apenas um registro para que possamos entrar em contato, <br> não vincula nenhuma obrigação por parte do cliente.
             #form(autocomplete="off" class="center padding-right padding-left")
-                form(method='')
-                    //- input(type='hidden', name='action', value='contact')
-                    //- .divider-form.flex
-                    //-     .divider
-                    //-     .group-title-form.text-center.default-padding Informações pessoais
-                    //- .form-group.flex.margin-bottom(class=validationErrors.name ? 'has-error' : null)
-                    //-     label(class="form-label margin-right") Nome:
-                    //-     input(type='text' name='name' value=formData.name placeholder="Nome Sobrenome" class="padding-left form-control flex-item input-text" required)
-                    //- div.flex-form
-                    //-     .form-group.flex.flex-item(class=validationErrors.telefone ? 'has-error' : null)
-                    //-             label(class="form-label margin-right") Telefone:
-                    //-             input(type='text' name='telefone'  maxlength="15" placeholder="(XX) XXXXX-XXXX" value=formData.telefone class="padding-left form-control flex-item input-text phone-mask" required)
+                form(method='post')
+                    input(type='hidden', name='action', value='contact')
+                    .divider-form.flex
+                        .divider
+                        .group-title-form.text-center.default-padding Informações pessoais
+                    .form-group.flex.margin-bottom(class=validationErrors.name ? 'has-error' : null)
+                        label(class="form-label margin-right") Nome:
+                        input(type='text' name='name' value=formData.name placeholder="Nome Sobrenome" class="padding-left form-control flex-item input-text" required)
+                    div.flex-form
+                        .form-group.flex.flex-item(class=validationErrors.telefone ? 'has-error' : null)
+                                label(class="form-label margin-right") Telefone:
+                                input(type='text' name='telefone'  maxlength="15" placeholder="(XX) XXXXX-XXXX" value=formData.telefone class="padding-left form-control flex-item input-text phone-mask" required)
                         //- .form-group.flex.flex-item.margin-bottom(class=validationErrors.email ? 'has-error' : null)
                         //-         label(class="form-label margin-right margin-left") Email:
                         //-         input(type='email' name='email' value=formData.email placeholder="Email contato" class="padding-left form-control flex-item input-text")
-                        //- .form-group.flex.margin-bottom.margin-left(class=validationErrors.atendimento ? 'has-error' : null)
-                        //-     label(class="form-label margin-right") Contato via:
-                        //-     radiogroup(value=formData.atendimento class="form-control")
-                        //-         input(name='atendimento' type='radio' id="whatsapp" value="whatsapp" class="radio-input")
-                        //-         label(for="whatsapp" class="radio-label margin-right") Whatsapp
-                        //-         input(name='atendimento' type='radio' id="ligação" value="ligação")
-                        //-         label(for="ligação" class="radio-label margin-right") Ligação
-                        //-         input(name='atendimento' type='radio' id="ambos" value="ambos" checked)
-                        //-         label(for="ambos" class="radio-label") Ambos
+                        .form-group.flex.margin-bottom.margin-left(class=validationErrors.atendimento ? 'has-error' : null)
+                            label(class="form-label margin-right") Contato via:
+                            radiogroup(value=formData.atendimento class="form-control")
+                                input(name='atendimento' type='radio' id="whatsapp" value="whatsapp" class="radio-input")
+                                label(for="whatsapp" class="radio-label margin-right") Whatsapp
+                                input(name='atendimento' type='radio' id="ligação" value="ligação")
+                                label(for="ligação" class="radio-label margin-right") Ligação
+                                input(name='atendimento' type='radio' id="ambos" value="ambos" checked)
+                                label(for="ambos" class="radio-label") Ambos
                     div.flex-form
                         //- .form-group.flex.flex-item.margin-bottom(class=validationErrors.estado ? 'has-error' : null)
                         //-         label(class="form-label margin-right") Estado:
@@ -115,53 +115,53 @@ block content
                         //-             select(name='estado' value=formData.estado class="form-control margin-right" onClick='setCities(this.value, "cidades")')
                         //-                 each estado, i in estados
                         //-                     option(value=estado.name) #{estado.name}
-                    //- .form-group.flex.flex-item.margin-bottom(class=validationErrors.cidade ? 'has-error' : null)
-                    //-         label(class="form-label margin-right") Cidade: Belo Horizonte e região. <i>Em breve novas cidades</i>.
+                    .form-group.flex.flex-item.margin-bottom(class=validationErrors.cidade ? 'has-error' : null)
+                            label(class="form-label margin-right") Cidade: Belo Horizonte e região. <i>Em breve novas cidades</i>.
                             //- .input-text.padding-left.flex-item 
                             //-     select(name='cidade' value=formData.cidade class="form-control margin-right" onClick='setCities(this.value, "cidades")')
                             //-         each estado, i in estados
                             //-             option(value=estado.name) #{estado.name}
-                    //- .divider-form.flex
-                    //-     .divider
-                    //-     .group-title-form.text-center.default-padding Seu veículo
-                    //- div.flex-form
+                    .divider-form.flex
+                        .divider
+                        .group-title-form.text-center.default-padding Seu veículo
+                    div.flex-form
                         //- .form-group.flex.flex-item.margin-bottom(class=validationErrors.tipoCarro ? 'has-error' : null)
                         //-         label(class="form-label margin-right") Tipo:
                         //-         .input-text.padding-left.flex-item 
                         //-             select(name='tipoCarro' value=formData.tipoCarro class="form-control margin-right" onClick='setCities(this.value, "cidades")')
                         //-                 each estado, i in estados
                         //-                     option(value=estado.name) #{estado.name}
-                        //- .form-group.flex.margin-bottom(class=validationErrors.marcaCarro ? 'has-error' : null)
-                        //-         label(class="form-label margin-right") Marca:
-                        //-         .input-text.padding-left.flex-item
-                        //-             select(name='marcaCarro' id="marcas" value=formData.marcaCarro class="form-control margin-right padding-right select-car" required)
-                        //- .form-group.flex.margin-bottom(class=validationErrors.modeloCarro ? 'has-error' : null)
-                        //-         label(class="form-label margin-right margin-left") Modelo:
-                        //-         .input-text.padding-left.flex-item 
-                        //-             select(name='modeloCarro' id="modelos" value=formData.modeloCarro class="form-control margin-right padding-right select-car" required)
-                        //- .form-group.flex.margin-bottom(class=validationErrors.anoCarro ? 'has-error' : null)
-                        //-         label(class="form-label margin-right margin-left") Ano:
-                        //-         .input-text.padding-left.flex-item 
-                        //-             select(name='anoCarro' id="anos" value=formData.anoCarro class="form-control margin-right padding-right select-car" required)
+                        .form-group.flex.margin-bottom(class=validationErrors.marcaCarro ? 'has-error' : null)
+                                label(class="form-label margin-right") Marca:
+                                .input-text.padding-left.flex-item
+                                    select(name='marcaCarro' id="marcas" value=formData.marcaCarro class="form-control margin-right padding-right select-car" required)
+                        .form-group.flex.margin-bottom(class=validationErrors.modeloCarro ? 'has-error' : null)
+                                label(class="form-label margin-right margin-left") Modelo:
+                                .input-text.padding-left.flex-item 
+                                    select(name='modeloCarro' id="modelos" value=formData.modeloCarro class="form-control margin-right padding-right select-car" required)
+                        .form-group.flex.margin-bottom(class=validationErrors.anoCarro ? 'has-error' : null)
+                                label(class="form-label margin-right margin-left") Ano:
+                                .input-text.padding-left.flex-item 
+                                    select(name='anoCarro' id="anos" value=formData.anoCarro class="form-control margin-right padding-right select-car" required)
                         //- .form-group.flex.flex-item.margin-bottom(class=validationErrors.versaoCarro ? 'has-error' : null)
                         //-         label(class="form-label margin-right margin-left") Versão:
                         //-         .input-text.padding-left.flex-item 
                         //-             select(name='versaoCarro' value=formData.versaoCarro class="form-control margin-right" onClick='setCities(this.value, "cidades")')
                         //-                 each estado, i in estados
                         //-                     option(value=estado.name) #{estado.name}
-                    //- .form-group.flex(class=validationErrors.cidade ? 'has-error' : null)
-                    //-         label(class="form-label margin-right") Serviços:
-                    //-         radiogroup.flex.flex-wrap(id="servico" value=formData.servicos class="form-control")
-                    //-             each servico, j in servicos
-                    //-                 .servico-item
-                    //-                     input(type='checkbox' name="servicos" value="#{servico.id}" class="checkbox-input")
-                    //-                     label(for="#{servico.name}" class="checkbox-label") #{servico.name}
-                    //- .divider-form.flex
-                    //-     .divider
-                    //-     .group-title-form.text-center.default-padding Descreva seu problema
-                    //- .form-group.flex.margin-bottom(class=validationErrors.mensagem ? 'has-error' : null)
-                    //-     label(class="form-label margin-right") Mensagem:
-                    //-     textarea(rows="4" cols="50" name='mensagem' value=formData.mensagem placeholder="Detalhes do serviço" class="padding-left form-control flex-item input-text" required)
+                    .form-group.flex(class=validationErrors.cidade ? 'has-error' : null)
+                            label(class="form-label margin-right") Serviços:
+                            radiogroup.flex.flex-wrap(id="servico" value=formData.servicos class="form-control")
+                                each servico, j in servicos
+                                    .servico-item
+                                        input(type='checkbox' name="servicos" value="#{servico.id}" class="checkbox-input")
+                                        label(for="#{servico.name}" class="checkbox-label") #{servico.name}
+                    .divider-form.flex
+                        .divider
+                        .group-title-form.text-center.default-padding Descreva seu problema
+                    .form-group.flex.margin-bottom(class=validationErrors.mensagem ? 'has-error' : null)
+                        label(class="form-label margin-right") Mensagem:
+                        textarea(rows="4" cols="50" name='mensagem' value=formData.mensagem placeholder="Detalhes do serviço" class="padding-left form-control flex-item input-text" required)
                         
                     //- .divider-form.flex
                     //-     .divider
@@ -189,4 +189,4 @@ block content
                     //-         input(name="periodo" type='checkbox' id="tarde" value="tarde")
                     //-         label(for="tarde" class="checkbox-label margin-right") Tarde
                     .form-group.flex
-                        button(type='' class="flex-item shadow" onClick='https://api.whatsapp.com/send?phone=5531994081850&text=Ol%C3%A1%20%2C%20gostaria%20de%20obter%20maiores%20informa%C3%A7%C3%B5es.')#submit Entre em contato
+                        button(type='submit' class="flex-item shadow" onClick='https://api.whatsapp.com/send?phone=5531994081850&text=Ol%C3%A1%20%2C%20gostaria%20de%20obter%20maiores%20informa%C3%A7%C3%B5es.')#submit Entre em contato
